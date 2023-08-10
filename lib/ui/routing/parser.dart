@@ -41,6 +41,9 @@ class MainRouterInformationParser
         case Keys.restaurantDetails:
           items.add(NavigationStackItem.restaurantDetails(Restaurant(price: 'price', imageUrl: 'imageUrl', restaurantName: 'restaurantName', rating: 2.5, distance: 2.5, comments: 15, category: 'category')));
           break;
+        case Keys.makeReservation:
+          items.add(NavigationStackItem.makeReservation(Restaurant(price: 'price', imageUrl: 'imageUrl', restaurantName: 'restaurantName', rating: 2.5, distance: 2.5, comments: 15, category: 'category')));
+          break;
       }
     }
     if (items.isEmpty) {
@@ -64,6 +67,7 @@ class MainRouterInformationParser
           element.when(
             home: () => '/${Keys.home}',
             restaurantDetails: (restaurant) => '/${Keys.restaurantDetails}',
+            makeReservation: (restaurant) => '/${Keys.makeReservation}',
           ).toString();
     });
 

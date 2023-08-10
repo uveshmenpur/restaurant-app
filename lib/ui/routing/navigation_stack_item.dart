@@ -7,4 +7,5 @@ part 'navigation_stack_item.freezed.dart';
 class NavigationStackItem with _$NavigationStackItem{
   const factory NavigationStackItem.home() = NavigationStackItemHome;
   const factory NavigationStackItem.restaurantDetails(Restaurant restaurant) = NavigationStackItemRestaurantDetails;
+  const factory NavigationStackItem.makeReservation(Restaurant restaurant) = NavigationStackItemMakeReservation;
 }

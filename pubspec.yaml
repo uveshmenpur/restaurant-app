@@ -32,35 +32,15 @@ dependencies:
     sdk: flutter
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  hive:
-  hive_flutter:
-  path_provider:
   flutter_riverpod:
   cached_network_image:
-  easy_localization:
   flutter_screenutil:
-  dio:
-  flutter_offline:
-  image_picker:
-  image_cropper:
-  wechat_assets_picker:
   injectable:
   get_it:
   freezed_annotation:
   json_annotation:
-  url_launcher:
   responsive_builder:
   flutter_svg:
-  video_player:
-  slider_button:
-  pin_code_fields:
-  carousel_slider:
-  lottie:
-  mask_text_input_formatter:
-  dotted_border:
-  webview_flutter:
-  share_plus:
-  dropdown_button2:
 
 
 dev_dependencies:

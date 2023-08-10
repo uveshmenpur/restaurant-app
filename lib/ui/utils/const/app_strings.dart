@@ -1,6 +1,14 @@
 class AppString {
   AppString._();
 
+  static const String keyFauziMohammad = 'Fauzi Mohammad ';
+  static const String keyAnd = 'and ';
+  static const String key8DaysAgo = ' 8 days ago ';
+  static const String keyHighlightedReviews = 'Highlighted Reviews';
+  static const String keyAzreena = 'Azreena';
+  static const String key198Reviews = '198 Reviews';
+  static const String key142Other = '142 others ';
+  static const String keyHaveRecommended = 'have recommended this place - try it!';
   static const String keyNearBy = 'NearBy';
   static const String keyFavourites = 'Favourites';
   static const String keyReservations = 'Reservation';
@@ -34,6 +42,10 @@ class AppString {
   static const String keyMenu = 'Menu';
   static const String keyPhotos = 'Photos(7)';
   static const String keyRecommendedBy = 'Recommended by';
+  static const String keyReviewText = 'A nice and big place to hang out with friends and family. Ambience – 4/5, well arranged. Lunch during summer is hectic. Food – 5/5, food is just amazing. Service – 3/5 (rather than becoming over friendly with guests, pl…';
+  static const String keyReadMore = 'read more';
+  static const String keyNana = 'Nana';
+
 
   static const restaurantDetailsTabs = [
     keyReviews,

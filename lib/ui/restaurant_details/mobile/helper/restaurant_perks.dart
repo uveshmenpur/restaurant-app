@@ -20,7 +20,7 @@ class RestaurantPerks extends StatelessWidget {
           padding: EdgeInsets.only(right:10.w,top: 14.h),
           child: Icon(
             Icons.done,
-            color: AppColors.doneIconColor,
+            color: AppColors.restaurantOpenColor,
             size: 18.h,
           ),
         ),

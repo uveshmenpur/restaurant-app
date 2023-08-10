@@ -20,18 +20,21 @@ mixin _$NavigationStackItem {
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(Restaurant restaurant) restaurantDetails,
+    required TResult Function(Restaurant restaurant) makeReservation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
     TResult? Function(Restaurant restaurant)? restaurantDetails,
+    TResult? Function(Restaurant restaurant)? makeReservation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(Restaurant restaurant)? restaurantDetails,
+    TResult Function(Restaurant restaurant)? makeReservation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +43,8 @@ mixin _$NavigationStackItem {
     required TResult Function(NavigationStackItemHome value) home,
     required TResult Function(NavigationStackItemRestaurantDetails value)
         restaurantDetails,
+    required TResult Function(NavigationStackItemMakeReservation value)
+        makeReservation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +52,8 @@ mixin _$NavigationStackItem {
     TResult? Function(NavigationStackItemHome value)? home,
     TResult? Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult? Function(NavigationStackItemMakeReservation value)?
+        makeReservation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +61,7 @@ mixin _$NavigationStackItem {
     TResult Function(NavigationStackItemHome value)? home,
     TResult Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +126,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(Restaurant restaurant) restaurantDetails,
+    required TResult Function(Restaurant restaurant) makeReservation,
   }) {
     return home();
   }
@@ -127,6 +136,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
     TResult? Function(Restaurant restaurant)? restaurantDetails,
+    TResult? Function(Restaurant restaurant)? makeReservation,
   }) {
     return home?.call();
   }
@@ -136,6 +146,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(Restaurant restaurant)? restaurantDetails,
+    TResult Function(Restaurant restaurant)? makeReservation,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -150,6 +161,8 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     required TResult Function(NavigationStackItemHome value) home,
     required TResult Function(NavigationStackItemRestaurantDetails value)
         restaurantDetails,
+    required TResult Function(NavigationStackItemMakeReservation value)
+        makeReservation,
   }) {
     return home(this);
   }
@@ -160,6 +173,8 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     TResult? Function(NavigationStackItemHome value)? home,
     TResult? Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult? Function(NavigationStackItemMakeReservation value)?
+        makeReservation,
   }) {
     return home?.call(this);
   }
@@ -170,6 +185,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     TResult Function(NavigationStackItemHome value)? home,
     TResult Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -256,6 +272,7 @@ class _$NavigationStackItemRestaurantDetails
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(Restaurant restaurant) restaurantDetails,
+    required TResult Function(Restaurant restaurant) makeReservation,
   }) {
     return restaurantDetails(restaurant);
   }
@@ -265,6 +282,7 @@ class _$NavigationStackItemRestaurantDetails
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
     TResult? Function(Restaurant restaurant)? restaurantDetails,
+    TResult? Function(Restaurant restaurant)? makeReservation,
   }) {
     return restaurantDetails?.call(restaurant);
   }
@@ -274,6 +292,7 @@ class _$NavigationStackItemRestaurantDetails
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(Restaurant restaurant)? restaurantDetails,
+    TResult Function(Restaurant restaurant)? makeReservation,
     required TResult orElse(),
   }) {
     if (restaurantDetails != null) {
@@ -288,6 +307,8 @@ class _$NavigationStackItemRestaurantDetails
     required TResult Function(NavigationStackItemHome value) home,
     required TResult Function(NavigationStackItemRestaurantDetails value)
         restaurantDetails,
+    required TResult Function(NavigationStackItemMakeReservation value)
+        makeReservation,
   }) {
     return restaurantDetails(this);
   }
@@ -298,6 +319,8 @@ class _$NavigationStackItemRestaurantDetails
     TResult? Function(NavigationStackItemHome value)? home,
     TResult? Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult? Function(NavigationStackItemMakeReservation value)?
+        makeReservation,
   }) {
     return restaurantDetails?.call(this);
   }
@@ -308,6 +331,7 @@ class _$NavigationStackItemRestaurantDetails
     TResult Function(NavigationStackItemHome value)? home,
     TResult Function(NavigationStackItemRestaurantDetails value)?
         restaurantDetails,
+    TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     required TResult orElse(),
   }) {
     if (restaurantDetails != null) {
@@ -326,5 +350,159 @@ abstract class NavigationStackItemRestaurantDetails
   @JsonKey(ignore: true)
   _$$NavigationStackItemRestaurantDetailsCopyWith<
           _$NavigationStackItemRestaurantDetails>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NavigationStackItemMakeReservationCopyWith<$Res> {
+  factory _$$NavigationStackItemMakeReservationCopyWith(
+          _$NavigationStackItemMakeReservation value,
+          $Res Function(_$NavigationStackItemMakeReservation) then) =
+      __$$NavigationStackItemMakeReservationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Restaurant restaurant});
+}
+
+/// @nodoc
+class __$$NavigationStackItemMakeReservationCopyWithImpl<$Res>
+    extends _$NavigationStackItemCopyWithImpl<$Res,
+        _$NavigationStackItemMakeReservation>
+    implements _$$NavigationStackItemMakeReservationCopyWith<$Res> {
+  __$$NavigationStackItemMakeReservationCopyWithImpl(
+      _$NavigationStackItemMakeReservation _value,
+      $Res Function(_$NavigationStackItemMakeReservation) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? restaurant = null,
+  }) {
+    return _then(_$NavigationStackItemMakeReservation(
+      null == restaurant
+          ? _value.restaurant
+          : restaurant // ignore: cast_nullable_to_non_nullable
+              as Restaurant,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NavigationStackItemMakeReservation
+    implements NavigationStackItemMakeReservation {
+  const _$NavigationStackItemMakeReservation(this.restaurant);
+
+  @override
+  final Restaurant restaurant;
+
+  @override
+  String toString() {
+    return 'NavigationStackItem.makeReservation(restaurant: $restaurant)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavigationStackItemMakeReservation &&
+            (identical(other.restaurant, restaurant) ||
+                other.restaurant == restaurant));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, restaurant);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavigationStackItemMakeReservationCopyWith<
+          _$NavigationStackItemMakeReservation>
+      get copyWith => __$$NavigationStackItemMakeReservationCopyWithImpl<
+          _$NavigationStackItemMakeReservation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(Restaurant restaurant) restaurantDetails,
+    required TResult Function(Restaurant restaurant) makeReservation,
+  }) {
+    return makeReservation(restaurant);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function(Restaurant restaurant)? restaurantDetails,
+    TResult? Function(Restaurant restaurant)? makeReservation,
+  }) {
+    return makeReservation?.call(restaurant);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(Restaurant restaurant)? restaurantDetails,
+    TResult Function(Restaurant restaurant)? makeReservation,
+    required TResult orElse(),
+  }) {
+    if (makeReservation != null) {
+      return makeReservation(restaurant);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigationStackItemHome value) home,
+    required TResult Function(NavigationStackItemRestaurantDetails value)
+        restaurantDetails,
+    required TResult Function(NavigationStackItemMakeReservation value)
+        makeReservation,
+  }) {
+    return makeReservation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigationStackItemHome value)? home,
+    TResult? Function(NavigationStackItemRestaurantDetails value)?
+        restaurantDetails,
+    TResult? Function(NavigationStackItemMakeReservation value)?
+        makeReservation,
+  }) {
+    return makeReservation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigationStackItemHome value)? home,
+    TResult Function(NavigationStackItemRestaurantDetails value)?
+        restaurantDetails,
+    TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
+    required TResult orElse(),
+  }) {
+    if (makeReservation != null) {
+      return makeReservation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigationStackItemMakeReservation
+    implements NavigationStackItem {
+  const factory NavigationStackItemMakeReservation(
+      final Restaurant restaurant) = _$NavigationStackItemMakeReservation;
+
+  Restaurant get restaurant;
+  @JsonKey(ignore: true)
+  _$$NavigationStackItemMakeReservationCopyWith<
+          _$NavigationStackItemMakeReservation>
       get copyWith => throw _privateConstructorUsedError;
 }

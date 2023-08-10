@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/ui/home/home.dart';
+import 'package:restaurant/ui/make_reservation/make_reservation.dart';
 import 'package:restaurant/ui/restaurant_details/restaurant_details.dart';
 import 'package:restaurant/ui/routing/navigation_stack_keys.dart';
 import 'package:restaurant/ui/routing/stack.dart';
@@ -9,7 +10,6 @@ import 'package:restaurant/ui/routing/stack.dart';
 @injectable
 class MainRouterDelegate extends RouterDelegate<NavigationStack>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
-
   final NavigationStack stack;
 
   @override
@@ -31,6 +31,7 @@ class MainRouterDelegate extends RouterDelegate<NavigationStack>
       return Navigator(
         key: navigatorKey,
         pages: _pages(ref),
+
         /// callback when a page is popped.
         onPopPage: (route, result) {
           /// let the OS handle the back press if there was nothing to pop
@@ -54,12 +55,20 @@ class MainRouterDelegate extends RouterDelegate<NavigationStack>
 
   List<Page> _pages(WidgetRef ref) => stack.items
       .mapIndexed((e, i) => e.when(
-    /// home screen
-    home :() =>
-    const MaterialPage(child: Home(), key: ValueKey(Keys.home)),
-      restaurantDetails :(restaurant) =>
-          MaterialPage(child: RestaurantDetails(restaurant: restaurant,),key: const ValueKey(Keys.restaurantDetails)),
-  )).toList();
+            /// home screen
+            home: () =>
+                const MaterialPage(child: Home(), key: ValueKey(Keys.home)),
+            restaurantDetails: (restaurant) => MaterialPage(
+                child: RestaurantDetails(
+                  restaurant: restaurant,
+                ),
+                key: const ValueKey(Keys.restaurantDetails)),
+    makeReservation: (restaurant) => MaterialPage(
+      child: MakeReservation(restaurant: restaurant),
+      key: const ValueKey(Keys.makeReservation),
+    ),
+          ))
+      .toList();
 
   @override
   NavigationStack get currentConfiguration => stack;

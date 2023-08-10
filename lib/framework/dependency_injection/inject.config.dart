@@ -14,10 +14,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:restaurant/framework/controllers/home_controller.dart' as _i3;
+import 'package:restaurant/framework/controllers/make_reservation_controller.dart'
+    as _i9;
 import 'package:restaurant/framework/controllers/restaurant_details_controller.dart'
-    as _i10;
+    as _i11;
 import 'package:restaurant/ui/routing/delegate.dart' as _i4;
-import 'package:restaurant/ui/routing/navigation_stack_item.dart' as _i9;
+import 'package:restaurant/ui/routing/navigation_stack_item.dart' as _i10;
 import 'package:restaurant/ui/routing/parser.dart' as _i6;
 import 'package:restaurant/ui/routing/stack.dart' as _i5;
 
@@ -47,14 +49,16 @@ extension GetItInjectableX on _i1.GetIt {
           ref,
           context,
         ));
-    gh.factoryParam<_i5.NavigationStack, List<_i9.NavigationStackItem>,
+    gh.factory<_i9.MakeReservationController>(
+        () => _i9.MakeReservationController());
+    gh.factoryParam<_i5.NavigationStack, List<_i10.NavigationStackItem>,
         dynamic>((
       items,
       _,
     ) =>
         _i5.NavigationStack(items));
-    gh.factory<_i10.RestaurantDetailsController>(
-        () => _i10.RestaurantDetailsController());
+    gh.factory<_i11.RestaurantDetailsController>(
+        () => _i11.RestaurantDetailsController());
     return this;
   }
 }
