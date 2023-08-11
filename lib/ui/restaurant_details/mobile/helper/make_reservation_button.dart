@@ -11,25 +11,39 @@ import 'package:restaurant/ui/utils/theme/text_style.dart';
 class MakeReservationButton extends StatelessWidget {
   const MakeReservationButton({
     super.key,
-    required this.restaurant,
+    this.restaurant,
+    this.onTap,
   });
 
-  final Restaurant restaurant;
+  final Restaurant? restaurant;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
-        return InkWell(
-          onTap: () {
-            ref
-                .watch(navigationStackController)
-                .push(NavigationStackItem.makeReservation(restaurant));
-          },
-          child: SizedBox(
-            width: double.infinity,
-            height: 120.h,
-            child: Center(
+        return SizedBox(
+          width: double.infinity,
+          height: 120.h,
+          child: Center(
+            child: InkWell(
+              onTap: onTap ??
+                  () {
+                    ref.watch(navigationStackController).push(
+                          NavigationStackItem.makeReservation(
+                            restaurant ??
+                                Restaurant(
+                                  distance: 1.0,
+                                  price: '',
+                                  restaurantName: '',
+                                  imageUrl: '',
+                                  rating: 1.2,
+                                  comments: 5,
+                                  category: '',
+                                ),
+                          ),
+                        );
+                  },
               child: Container(
                 width: 214.w,
                 height: 40.h,

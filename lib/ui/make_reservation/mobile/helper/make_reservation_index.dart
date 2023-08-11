@@ -34,6 +34,7 @@ class MakeReservationIndex extends StatelessWidget {
       onTap: onItemTapped ??
           () {
             makeReservationWatch.selectPerson(index);
+            makeReservationWatch.jumpToPage(2);
           },
       child: Container(
         width: size?.w ?? 50.w,

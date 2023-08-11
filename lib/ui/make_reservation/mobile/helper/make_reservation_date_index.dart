@@ -36,6 +36,7 @@ class MakeReservationDateIndex extends StatelessWidget {
       onTap: onItemTapped ??
               () {
             makeReservationWatch.selectDate(index,month);
+            makeReservationWatch.jumpToPage(3);
           },
       child: Container(
         width: size?.w ?? 50.w,

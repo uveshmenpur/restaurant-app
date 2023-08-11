@@ -8,7 +8,8 @@ class AppString {
   static const String keyAzreena = 'Azreena';
   static const String key198Reviews = '198 Reviews';
   static const String key142Other = '142 others ';
-  static const String keyHaveRecommended = 'have recommended this place - try it!';
+  static const String keyHaveRecommended =
+      'have recommended this place - try it!';
   static const String keyNearBy = 'NearBy';
   static const String keyFavourites = 'Favourites';
   static const String keyReservations = 'Reservation';
@@ -41,16 +42,73 @@ class AppString {
   static const String keyReviews = 'Reviews';
   static const String keyMenu = 'Menu';
   static const String keyPhotos = 'Photos(7)';
+  static const String keyAvailabeTimes = 'AVAILABLE TIMES';
   static const String keyRecommendedBy = 'Recommended by';
-  static const String keyReviewText = 'A nice and big place to hang out with friends and family. Ambience – 4/5, well arranged. Lunch during summer is hectic. Food – 5/5, food is just amazing. Service – 3/5 (rather than becoming over friendly with guests, pl…';
+  static const String keyReviewText =
+      'A nice and big place to hang out with friends and family. Ambience – 4/5, well arranged. Lunch during summer is hectic. Food – 5/5, food is just amazing. Service – 3/5 (rather than becoming over friendly with guests, pl…';
   static const String keyReadMore = 'read more';
   static const String keyNana = 'Nana';
-
+  static const String keyRestaurantTermsAndCondition = 'Restaurant Terms & Conditions';
+  static const String keyTermsAndConditions = 'Please be informed of the following for your convenience: \nMaximum of 4 people per table \nAge Policy: 13 to 59 yrs old \nNo Alcohol and Live Music';
 
   static const restaurantDetailsTabs = [
     keyReviews,
     keyMenu,
     keyPhotos,
+  ];
+  static const reservationTime = [
+    'BreakFast',
+    'Lunch',
+    'Dinner',
+  ];
+  static const inputHint = [
+    'First Name',
+    'Last Name',
+    'Phone Number',
+    'Email',
+    'Special Request',
+  ];
+  static const breakFastTime = [
+    '09:00',
+    '09:15',
+    '09:30',
+    '09:45',
+    '10:00',
+    '10:15',
+    '10:30',
+    '10:45',
+    '11:00',
+    '11:15',
+    '11:30',
+    '11:45',
+  ];
+  static const lunchTime = [
+    '12:00',
+    '12:15',
+    '12:30',
+    '12:45',
+    '01:00',
+    '01:15',
+    '01:30',
+    '01:45',
+    '02:00',
+    '02:15',
+    '02:30',
+    '02:45',
+  ];
+  static const dinnerTime = [
+    '07:00',
+    '07:15',
+    '07:30',
+    '07:45',
+    '08:00',
+    '08:15',
+    '08:30',
+    '08:45',
+    '09:00',
+    '09:15',
+    '09:30',
+    '09:45',
   ];
   static const perks = [
     keyGoodForGroups,

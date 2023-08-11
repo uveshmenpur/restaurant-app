@@ -11,7 +11,6 @@ import 'package:restaurant/ui/utils/theme/text_style.dart';
 class MakeReservationDatePicker extends ConsumerWidget {
   const MakeReservationDatePicker({super.key});
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final now = DateTime.now();
@@ -99,7 +98,7 @@ class MonthNameDisplay extends StatelessWidget {
       height: height ?? 120.h,
       child: Center(
         child: Text(
-          DateTime(2000,month).monthName,
+          DateTime(2023,month).monthName,
           style: TextStyles.semiBold.copyWith(
             color: AppColors.black,
             fontSize: 24.sp,
@@ -119,17 +118,15 @@ class WeekDayList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 30.h,
-      child: Center(
-        child: ListView.builder(
-          itemCount: 7,
-          itemBuilder: (context, index) {
-            return MakeReservationWeekDay(index: index + 1);
-          },
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          physics: const NeverScrollableScrollPhysics(),
-        ),
+      height: 40.h,
+      child: ListView.builder(
+        itemCount: 7,
+        itemBuilder: (context, index) {
+          return MakeReservationWeekDay(index: index + 1);
+        },
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        physics: const NeverScrollableScrollPhysics(),
       ),
     );
   }

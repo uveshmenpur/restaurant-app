@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation_controller.dart';
-import 'package:restaurant/framework/utility/extension/date_time.dart';
+import 'package:restaurant/framework/utility/extension/int.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
@@ -88,7 +88,7 @@ class MakeReservationTabBar extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          '${makeReservationWatch.dateTime.weekdayName},${makeReservationWatch.dateTime.day} ${makeReservationWatch.dateTime.monthName}',
+                          '${makeReservationWatch.weekDayByDate()},${makeReservationWatch.selectedDay} ${makeReservationWatch.selectedMonth.monthName}',
                           style: TextStyles.medium.copyWith(
                             fontSize: 18.sp,
                             color: AppColors.black,

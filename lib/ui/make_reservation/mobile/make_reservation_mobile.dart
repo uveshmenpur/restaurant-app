@@ -5,7 +5,9 @@ import 'package:restaurant/framework/controllers/make_reservation_controller.dar
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_close_button.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_date_picker.dart';
+import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_form.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_tab_bar.dart';
+import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_time_picker.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_title.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/select_person_page.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
@@ -34,8 +36,14 @@ class MakeReservationMobile extends StatelessWidget {
             const MakeReservationTabBar(),
             Consumer(
               builder: (BuildContext context, WidgetRef ref, Widget? child) {
-                final makeReservationWatch = ref.watch(makeReservationController);
-                return makeReservationWatch.selectedPage == 1 ? const SelectPersonPage() : const MakeReservationDatePicker();
+                final makeReservationWatch =
+                ref.watch(makeReservationController);
+                return makeReservationWatch.selectedPage == 1
+                    ? const SelectPersonPage()
+                    : makeReservationWatch.selectedPage == 2
+                    ? const MakeReservationDatePicker()
+                    : makeReservationWatch.selectedPage == 3
+                    ? MakeReservationTimePicker(restaurant: restaurant,) : MakeReservationForm(restaurant: restaurant);
               },
             ),
           ],

@@ -16,10 +16,12 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:restaurant/framework/controllers/home_controller.dart' as _i3;
 import 'package:restaurant/framework/controllers/make_reservation_controller.dart'
     as _i9;
+import 'package:restaurant/framework/controllers/make_reservation_form_controller.dart'
+    as _i10;
 import 'package:restaurant/framework/controllers/restaurant_details_controller.dart'
-    as _i11;
+    as _i12;
 import 'package:restaurant/ui/routing/delegate.dart' as _i4;
-import 'package:restaurant/ui/routing/navigation_stack_item.dart' as _i10;
+import 'package:restaurant/ui/routing/navigation_stack_item.dart' as _i11;
 import 'package:restaurant/ui/routing/parser.dart' as _i6;
 import 'package:restaurant/ui/routing/stack.dart' as _i5;
 
@@ -51,14 +53,16 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i9.MakeReservationController>(
         () => _i9.MakeReservationController());
-    gh.factoryParam<_i5.NavigationStack, List<_i10.NavigationStackItem>,
+    gh.factory<_i10.MakeReservationFormController>(
+        () => _i10.MakeReservationFormController());
+    gh.factoryParam<_i5.NavigationStack, List<_i11.NavigationStackItem>,
         dynamic>((
       items,
       _,
     ) =>
         _i5.NavigationStack(items));
-    gh.factory<_i11.RestaurantDetailsController>(
-        () => _i11.RestaurantDetailsController());
+    gh.factory<_i12.RestaurantDetailsController>(
+        () => _i12.RestaurantDetailsController());
     return this;
   }
 }

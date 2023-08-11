@@ -20,7 +20,7 @@ class MakeReservationWeekDay extends StatelessWidget {
       decoration: const BoxDecoration(
         color: AppColors.makeReservationBgColor,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
       child: Center(
         child: Text(
           index.weekDay,
