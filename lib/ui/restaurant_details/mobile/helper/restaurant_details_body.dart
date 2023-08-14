@@ -5,6 +5,7 @@ import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+///Body Widget for Restaurant Details Page
 class RestaurantDetailsBody extends StatelessWidget {
   const RestaurantDetailsBody({
     super.key,

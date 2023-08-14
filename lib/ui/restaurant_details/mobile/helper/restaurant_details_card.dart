@@ -4,6 +4,7 @@ import 'package:restaurant/framework/repository/home/model/restaurant.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+///Card that Displays Restaurant Information
 class RestaurantDetailsCard extends StatelessWidget {
   const RestaurantDetailsCard({
     super.key,

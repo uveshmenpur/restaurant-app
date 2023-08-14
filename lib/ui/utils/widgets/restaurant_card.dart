@@ -12,7 +12,8 @@ class RestaurantCard extends StatelessWidget {
     required this.restaurantName,
     required this.distance,
     required this.commentCount,
-    required this.restaurantCategory, required this.price,
+    required this.restaurantCategory,
+    required this.price,
   });
 
   final String image;
@@ -26,7 +27,7 @@ class RestaurantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 20.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
       child: Stack(
         fit: StackFit.loose,
         children: [
@@ -52,6 +53,7 @@ class RestaurantCard extends StatelessWidget {
             width: 0.95.sw,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(
                   width: 294.w,

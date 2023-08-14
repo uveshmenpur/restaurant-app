@@ -10,6 +10,7 @@ final makeReservationController = ChangeNotifierProvider((ref) {
 
 @Injectable()
 class MakeReservationController extends ChangeNotifier {
+  ///All the reservation related date,time,weekday is manages in this controller
   DateTime dateTime = DateTime.now();
   int selectedDay = DateTime.now().day;
   int selectedMonth = DateTime.now().month;

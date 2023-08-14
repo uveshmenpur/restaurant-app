@@ -7,7 +7,7 @@ import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_cl
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_date_picker.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_form.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_tab_bar.dart';
-import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_time_picker.dart';
+import 'package:restaurant/ui/utils/widgets/make_reservation_time_picker.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_title.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/select_person_page.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';

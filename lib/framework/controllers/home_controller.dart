@@ -21,9 +21,14 @@ class HomeController extends ChangeNotifier {
   double endRating = 5.0;
   double startDistance = 1.0;
   double endDistance = 10.0;
+  final searchBarNode = FocusNode();
   List<Restaurant> favorite = [];
 
 
+  void unFocus(){
+    searchBarNode.unfocus();
+    notifyListeners();
+  }
 
   void setPrice(double newStartPrice,double newEndPrice) {
     startPrice = newStartPrice.toInt();

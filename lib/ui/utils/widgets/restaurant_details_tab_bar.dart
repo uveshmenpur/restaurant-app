@@ -6,17 +6,18 @@ import 'package:restaurant/framework/controllers/restaurant_details_controller.d
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantDetailsPageView extends StatelessWidget {
-  const RestaurantDetailsPageView({
+
+class RestaurantDetailsTabBar extends StatelessWidget {
+  const RestaurantDetailsTabBar({
     super.key,
     required this.list,
-    this.onTap,
     this.isReservationTimePicker = false,
+    required this.onPressed,
   });
 
   final List<String> list;
   final bool isReservationTimePicker;
-  final void Function()? onTap;
+  final void Function(int) onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +34,9 @@ class RestaurantDetailsPageView extends StatelessWidget {
                 (index) {
                   return Flexible(
                     child: InkWell(
-                      onTap: onTap ??
-                          () {
-                            isReservationTimePicker
-                                ? makeReservationWatch.setReservationTime(index)
-                                : restaurantDetailWatch.jumpToPage(index);
-                          },
+                      onTap: () {
+                        onPressed(index);
+                      },
                       child: Column(
                         children: [
                           SizedBox(

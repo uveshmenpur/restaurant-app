@@ -8,6 +8,7 @@ import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+///Make A Reservation Button
 class MakeReservationButton extends StatelessWidget {
   const MakeReservationButton({
     super.key,

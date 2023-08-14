@@ -5,7 +5,7 @@ import 'package:restaurant/framework/controllers/make_reservation_controller.dar
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_select_time.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
-import 'package:restaurant/ui/restaurant_details/mobile/helper/restaurant_details_pageview.dart';
+import 'package:restaurant/ui/utils/widgets/restaurant_details_tab_bar.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
@@ -42,10 +42,16 @@ class MakeReservationTimePicker extends StatelessWidget {
         SizedBox(
           height: 35.h,
         ),
-        const RestaurantDetailsPageView(
-          list: AppString.reservationTime,
-          isReservationTimePicker: true,
-        ),
+        Consumer(builder: (BuildContext context, WidgetRef ref, Widget? child) {
+          final makeReservationWatch = ref.watch(makeReservationController);
+          return RestaurantDetailsTabBar(
+            list: AppString.reservationTime,
+            isReservationTimePicker: true,
+            onPressed: (int index) {
+              makeReservationWatch.setReservationTime(index);
+            },
+          );
+        }),
         Consumer(
           builder: (BuildContext context, WidgetRef ref, Widget? child) {
             final makeReservationWatch = ref.watch(makeReservationController);

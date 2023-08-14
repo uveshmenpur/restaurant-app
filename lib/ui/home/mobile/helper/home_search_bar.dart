@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/framework/controllers/home_controller.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
@@ -24,25 +26,34 @@ class HomeSearchBar extends StatelessWidget {
           ),
         ],
       ),
-      child: TextFormField(
-        cursorColor: AppColors.searchBarText.withOpacity(0.7),
-        cursorHeight: 16.h,
-        keyboardType: TextInputType.name,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(18.0.w),
-          hintText: AppString.keySearchRestaurants,
-          hintStyle: TextStyles.regular.copyWith(
-            fontSize: 18.sp,
-            color: AppColors.searchBarText.withOpacity(0.7),
-            decoration: TextDecoration.none,
-          ),
-          border: InputBorder.none,
-        ),
-        style: TextStyles.regular.copyWith(
-          fontSize: 18.sp,
-          color: AppColors.searchBarText.withOpacity(0.7),
-          decoration: TextDecoration.none,
-        ),
+      child: Consumer(
+        builder: (BuildContext context, WidgetRef ref, Widget? child) {
+          final homeWatch = ref.watch(homeController);
+          return TextFormField(
+            focusNode: homeWatch.searchBarNode,
+            cursorColor: AppColors.searchBarText.withOpacity(0.7),
+            cursorHeight: 16.h,
+            keyboardType: TextInputType.name,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(18.0.w),
+              hintText: AppString.keySearchRestaurants,
+              hintStyle: TextStyles.regular.copyWith(
+                fontSize: 18.sp,
+                color: AppColors.searchBarText.withOpacity(0.7),
+                decoration: TextDecoration.none,
+              ),
+              border: InputBorder.none,
+            ),
+            onTapOutside: (pointer) {
+              homeWatch.unFocus();
+            },
+            style: TextStyles.regular.copyWith(
+              fontSize: 18.sp,
+              color: AppColors.searchBarText.withOpacity(0.7),
+              decoration: TextDecoration.none,
+            ),
+          );
+        },
       ),
     );
   }

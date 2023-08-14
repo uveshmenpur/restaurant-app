@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/ui/utils/theme/app_assets.dart';
 
+///Restaurant Images in Restaurant Details page
 class RestaurantDetailPhotos extends StatelessWidget {
   const RestaurantDetailPhotos({super.key});
 
