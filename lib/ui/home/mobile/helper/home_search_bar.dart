@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant/framework/controllers/home_controller.dart';
+import 'package:restaurant/framework/controllers/home/home_controller.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';

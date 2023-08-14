@@ -41,6 +41,9 @@ dependencies:
   json_annotation:
   responsive_builder:
   flutter_svg:
+  country_list_pick:
+  email_validator:
+  country_code_picker: ^3.0.0
 
 
 dev_dependencies:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant/framework/controllers/make_reservation_controller.dart';
+import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/utility/extension/date_time.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_date_index.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_week_day.dart';
