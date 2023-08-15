@@ -11,11 +11,16 @@ class HomeMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
+    /// Watch the home controller for changes
     final homeWatch = ref.watch(homeController);
+
     return Scaffold(
+
       ///Common Appbar
       appBar: CommonHomeAppbar(
-        ///Used to display Covid Banner on App Start
+
+        /// Display Covid Banner on App Start
         flexibleSpace: const HomeCovidBanner(),
         isFlexibleVisible: homeWatch.isBannerVisible,
       ),

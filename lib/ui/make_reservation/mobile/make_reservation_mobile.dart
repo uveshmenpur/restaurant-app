@@ -11,7 +11,7 @@ import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_ti
 import 'package:restaurant/ui/make_reservation/mobile/helper/select_person_page.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
-import 'package:restaurant/ui/utils/widgets/make_reservation_time_picker.dart';
+import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_time_picker.dart';
 
 class MakeReservationMobile extends StatelessWidget {
   const MakeReservationMobile({super.key, required this.restaurant});
@@ -39,18 +39,22 @@ class MakeReservationMobile extends StatelessWidget {
               builder: (BuildContext context, WidgetRef ref, Widget? child) {
                 final makeReservationWatch =
                     ref.watch(makeReservationController);
-                return makeReservationWatch.selectedPage == 1
-                    ? const SelectPersonPage()
-                    : makeReservationWatch.selectedPage == 2
-                        ? const MakeReservationDatePicker()
-                        : makeReservationWatch.selectedPage == 3
-                            ? MakeReservationTimePicker(
-                                restaurant: restaurant,
-                              )
-                            : SizedBox(
-                                height: 0.8.sh,
-                                child: MakeReservationForm(
-                                    restaurant: restaurant));
+
+                // Display different pages based on the selected tab
+                if (makeReservationWatch.selectedPage == 1) {
+                  return const SelectPersonPage();
+                } else if (makeReservationWatch.selectedPage == 2) {
+                  return const MakeReservationDatePicker();
+                } else if (makeReservationWatch.selectedPage == 3) {
+                  return MakeReservationTimePicker(
+                    restaurant: restaurant,
+                  );
+                } else {
+                  return SizedBox(
+                    height: 0.8.sh,
+                    child: MakeReservationForm(restaurant: restaurant),
+                  );
+                }
               },
             ),
           ],

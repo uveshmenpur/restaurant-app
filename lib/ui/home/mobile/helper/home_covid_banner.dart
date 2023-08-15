@@ -6,6 +6,7 @@ import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+///Covid Banner Displayed on app start
 class HomeCovidBanner extends StatelessWidget {
   const HomeCovidBanner({
     super.key,

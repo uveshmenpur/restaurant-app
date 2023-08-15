@@ -29,6 +29,8 @@ class HomeSearchBar extends StatelessWidget {
       child: Consumer(
         builder: (BuildContext context, WidgetRef ref, Widget? child) {
           final homeWatch = ref.watch(homeController);
+
+          /// TextFormField for search input
           return TextFormField(
             focusNode: homeWatch.searchBarNode,
             cursorColor: AppColors.searchBarText.withOpacity(0.7),

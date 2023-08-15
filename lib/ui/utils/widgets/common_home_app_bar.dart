@@ -24,7 +24,7 @@ class CommonHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: isFlexibleVisible
           ? const EdgeInsets.all(0.0)
-          : EdgeInsets.fromLTRB(30.0.w, 0.0, 30.0.w, 0.0),
+          : EdgeInsets.fromLTRB(30.w, 0.0, 30.w, 0.0),
       child: AppBar(
         backgroundColor: backgroundColor ?? AppColors.primaryBrown,
         automaticallyImplyLeading: false,
@@ -39,5 +39,5 @@ class CommonHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(isFlexibleVisible ? 230 : 88.h);
+  Size get preferredSize => Size.fromHeight(isFlexibleVisible ? 230.h : 88.h);
 }

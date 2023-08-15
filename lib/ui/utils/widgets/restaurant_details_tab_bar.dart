@@ -6,7 +6,6 @@ import 'package:restaurant/framework/controllers/restaurant_details/restaurant_d
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-
 class RestaurantDetailsTabBar extends StatelessWidget {
   const RestaurantDetailsTabBar({
     super.key,

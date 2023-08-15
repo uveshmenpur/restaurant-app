@@ -11,6 +11,7 @@ import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_card.dart';
 
+///Home-Screen Body Widget
 class HomeBodyWidget extends StatelessWidget {
   const HomeBodyWidget({
     super.key,

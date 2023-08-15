@@ -8,7 +8,7 @@ import 'package:restaurant/ui/utils/theme/text_style.dart';
 class CommonTextField extends StatelessWidget {
   const CommonTextField({
     super.key,
-    required this.makeReservationFormWatch,
+    required this.controller,
     required this.index,
     this.validator,
     required this.node,
@@ -20,7 +20,7 @@ class CommonTextField extends StatelessWidget {
     this.maxLength, this.maxLines,
   });
 
-  final MakeReservationFormController makeReservationFormWatch;
+  final MakeReservationFormController controller;
   final int index;
   final FocusNode node;
   final String? Function(String?)? validator;
@@ -46,7 +46,9 @@ class CommonTextField extends StatelessWidget {
         prefixText: prefixText,
         prefix: prefix,
         counterText: '',
-        errorStyle: TextStyle(),
+        errorStyle: TextStyles.medium.copyWith(
+
+        ),
         hintText: AppString.inputHint[index],
         border: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -75,7 +77,7 @@ class CommonTextField extends StatelessWidget {
         node.unfocus();
       },
       onSaved: (value) {
-        makeReservationFormWatch.validate();
+        controller.validate();
       },
       maxLines: maxLines,
       maxLength: maxLength,

@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_form_controller.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/framework/utility/extension/string.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
@@ -57,12 +56,8 @@ class MakeReservationForm extends ConsumerWidget {
                 makeReservationFormWatch.assignNodes();
                 return CommonTextField(
                     index: index,
-                    makeReservationFormWatch: makeReservationFormWatch,
+                    controller: makeReservationFormWatch,
                     maxLength: index == 2 ? 10 : null,
-                    // prefix: index == 2
-                    //     ?
-                    //     : null,
-                    // // prefixText: index == 2 ? '${makeReservationFormWatch.code.dialCode} ' : null,
                     keyboard: index == 2
                         ? TextInputType.phone
                         : index == 3
@@ -78,26 +73,7 @@ class MakeReservationForm extends ConsumerWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                CountryCodePicker(
-                                  hideMainText: true,
-                                  showCountryOnly: true,
-                                  showFlagMain: true,
-                                  onChanged: (code) {
-                                    makeReservationFormWatch
-                                        .changeCountryCode(code);
-                                  },
-
-                                  alignLeft: true,
-                                  padding: EdgeInsets.zero,
-                                ),
-                                // Padding(
-                                //   padding: EdgeInsets.fromLTRB(4.w, 0.0,0.0, 15.h),
-                                //   child: Icon(
-                                //     Icons.keyboard_arrow_down,
-                                //     size: 18.w,
-                                //     color: AppColors.selectedPageIndicatorColor,
-                                //   ),
-                                // ),
+                                const CountryPicker(),
                                 Padding(
                                   padding:
                                       EdgeInsets.fromLTRB(0.0, 25.h, 0.0, 8.h),
@@ -114,44 +90,7 @@ class MakeReservationForm extends ConsumerWidget {
                             ),
                           )
                         : null,
-                    validator: index == 2
-                        ? (value) {
-                            if (value != null &&
-                                value.length == 10 &&
-                                value.validatePhoneNumber) {
-                              makeReservationFormWatch.phoneNumber = value;
-                              return null;
-                            } else {
-                              return '  Invalid Phone';
-                            }
-                          }
-                        : index == 3
-                            ? (value) {
-                                if (value != null && value.validateEmail) {
-                                  makeReservationFormWatch.email = value;
-                                  return null;
-                                } else {
-                                  return 'Enter Valid Email';
-                                }
-                              }
-                            : (value) {
-                                if (value != null && value.isNotEmpty ||
-                                    index == 4) {
-                                  if (index == 0) {
-                                    makeReservationFormWatch.firstName = value!;
-                                  }
-                                  if (index == 1) {
-                                    makeReservationFormWatch.lastname = value!;
-                                  }
-                                  if (index == 4) {
-                                    makeReservationFormWatch.specialRequest =
-                                        value;
-                                  }
-                                  return null;
-                                } else {
-                                  return 'Invalid Input';
-                                }
-                              },
+                    validator: makeReservationFormWatch.getValidator(index),
                     node: makeReservationFormWatch.nodes[index]);
               },
             ),
@@ -171,6 +110,32 @@ class MakeReservationForm extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CountryPicker extends StatelessWidget {
+  const CountryPicker({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(
+      builder: (BuildContext context, WidgetRef ref, Widget? child) {
+        final makeReservationFormWatch =
+            ref.watch(makeReservationFormController);
+        return CountryCodePicker(
+          hideMainText: true,
+          showCountryOnly: true,
+          showFlagMain: true,
+          onChanged: (code) {
+            makeReservationFormWatch.changeCountryCode(code);
+          },
+          alignLeft: true,
+          padding: EdgeInsets.zero,
+        );
+      },
     );
   }
 }

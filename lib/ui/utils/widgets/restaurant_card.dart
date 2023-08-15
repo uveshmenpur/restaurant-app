@@ -53,7 +53,6 @@ class RestaurantCard extends StatelessWidget {
             width: 0.95.sw,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(
                   width: 294.w,
@@ -66,14 +65,14 @@ class RestaurantCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 12.0.w, vertical: 4.0.h),
+                              horizontal: 12.w, vertical: 4.h),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Icon(
                                 Icons.star,
-                                size: 14.0.w,
+                                size: 14.w,
                               ),
                               Text(
                                 rating,
@@ -138,7 +137,7 @@ class RestaurantCard extends StatelessWidget {
                               const Spacer(),
                               Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                    EdgeInsets.symmetric(horizontal: 4.w),
                                 child: Icon(
                                   Icons.mode_comment_outlined,
                                   color: AppColors.black,

@@ -3,10 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/home/home_controller.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/ui/routing/stack.dart';
-import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
-import 'package:restaurant/ui/utils/theme/text_style.dart';
+import 'package:restaurant/ui/utils/widgets/common_close_button.dart';
 
 
 class RestaurantDetailsTopWidget extends StatelessWidget {
@@ -32,22 +30,7 @@ class RestaurantDetailsTopWidget extends StatelessWidget {
           Positioned(
             top: 54.h,
             right: 30.w,
-            child: Consumer(
-              builder:
-                  (BuildContext context, WidgetRef ref, Widget? child) {
-                return InkWell(
-                  onTap: () {
-                    ref.watch(navigationStackController).pop();
-                  },
-                  child: Text(
-                    AppString.keyClose,
-                    style: TextStyles.regular.copyWith(
-                      color: AppColors.white,
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: const CommonCloseButton(),
           ),
           Positioned(
             bottom: 20.h,
@@ -104,3 +87,4 @@ class RestaurantDetailsTopWidget extends StatelessWidget {
     );
   }
 }
+

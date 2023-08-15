@@ -96,7 +96,7 @@ class RestaurantDetailsCard extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 4.0),
+                  EdgeInsets.symmetric(horizontal: 4.w),
                   child: Icon(
                     Icons.mode_comment_outlined,
                     color: AppColors.black,
