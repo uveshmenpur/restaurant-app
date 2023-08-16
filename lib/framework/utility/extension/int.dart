@@ -1,22 +1,25 @@
-extension WeekdayFromInt on int{
-  String get weekDay{
-    switch(this){
+import 'dart:math';
+
+extension WeekdayFromInt on int {
+  String get weekDay {
+    switch (this) {
       case 1:
-        return ' M';
+        return 'M';
       case 2:
       case 4:
-        return ' T';
+        return 'T';
       case 3:
-        return ' W';
+        return 'W';
       case 5:
-        return ' F';
+        return 'F';
       case 6:
       case 7:
-        return ' S';
+        return 'S';
       default:
-        return '  ';
+        return ' ';
     }
   }
+
   String get monthName {
     switch (this) {
       case 1:
@@ -48,4 +51,11 @@ extension WeekdayFromInt on int{
     }
   }
 
+  String get generateUniqueId {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    final random = Random();
+    final uniqueChars =
+        List.generate(this, (index) => chars[random.nextInt(chars.length)]);
+    return uniqueChars.join('');
+  }
 }

@@ -4,8 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_form_controller.dart';
+import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_watch.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
+import 'package:restaurant/framework/repository/make_reservation/reservation.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
+import 'package:restaurant/ui/routing/navigation_stack_item.dart';
+import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 import 'package:restaurant/ui/utils/widgets/common_text_field.dart';
@@ -19,6 +23,7 @@ class MakeReservationForm extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final makeReservationWatch = ref.watch(makeReservationController);
     final makeReservationFormWatch = ref.watch(makeReservationFormController);
+    final reservationConfirmedWatch = ref.watch(reservationConfirmedController);
     return Form(
       key: makeReservationFormWatch.formKey,
       child: Column(
@@ -101,6 +106,24 @@ class MakeReservationForm extends ConsumerWidget {
           MakeReservationButton(
             onTap: () {
               makeReservationFormWatch.validate();
+              makeReservationWatch.setSelectedReservationTime();
+              reservationConfirmedWatch.setReservation(
+                Reservation(
+                    restaurant: restaurant,
+                    reservationTime:
+                        makeReservationWatch.selectedReservationTime,
+                    peopleCount: makeReservationWatch.selectedPersonCount),
+              );
+              ref.watch(navigationStackController).push(
+                    NavigationStackItem.reservationConfirmed(
+                      Reservation(
+                          restaurant: restaurant,
+                          reservationTime:
+                              makeReservationWatch.selectedReservationTime,
+                          peopleCount:
+                              makeReservationWatch.selectedPersonCount),
+                    ),
+                  );
             },
           ),
           Flexible(

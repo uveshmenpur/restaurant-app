@@ -24,7 +24,6 @@ class HomeController extends ChangeNotifier {
   final searchBarNode = FocusNode();
   List<Restaurant> favorite = [];
 
-
   void unFocus(){
     searchBarNode.unfocus();
     notifyListeners();

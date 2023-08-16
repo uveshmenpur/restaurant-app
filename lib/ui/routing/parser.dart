@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
+import 'package:restaurant/framework/repository/make_reservation/reservation.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/navigation_stack_keys.dart';
 import 'package:restaurant/ui/routing/stack.dart';
@@ -24,12 +25,19 @@ class MainRouterInformationParser
 
     final items = <NavigationStackItem>[];
     debugPrint('Stack Item Count - ${items.length}');
+    final Restaurant restaurant = Restaurant(
+        price: 'price',
+        imageUrl: 'imageUrl',
+        restaurantName: 'restaurantName',
+        rating: 2.5,
+        distance: 2.5,
+        comments: 15,
+        category: 'category');
     // String? langStr = queryParams['lang'];
 
     // if (langStr != null) {
     //   await context.setLocale(Locale(langStr == "english" ? "en" : "hi"));
     // }
-
 
     for (var i = 0; i < uri.pathSegments.length; i = i + 1) {
       final key = uri.pathSegments[i];
@@ -39,16 +47,19 @@ class MainRouterInformationParser
           items.add(const NavigationStackItem.home());
           break;
         case Keys.restaurantDetails:
-          items.add(NavigationStackItem.restaurantDetails(Restaurant(price: 'price', imageUrl: 'imageUrl', restaurantName: 'restaurantName', rating: 2.5, distance: 2.5, comments: 15, category: 'category')));
+          items.add(NavigationStackItem.restaurantDetails(restaurant));
           break;
         case Keys.makeReservation:
-          items.add(NavigationStackItem.makeReservation(Restaurant(price: 'price', imageUrl: 'imageUrl', restaurantName: 'restaurantName', rating: 2.5, distance: 2.5, comments: 15, category: 'category')));
+          items.add(NavigationStackItem.makeReservation(restaurant));
+          break;
+        case Keys.reservationConfirmed:
+          items.add(NavigationStackItem.reservationConfirmed(Reservation(
+              restaurant: restaurant, reservationTime: DateTime.now(), peopleCount: 1)));
           break;
       }
     }
     if (items.isEmpty) {
-      const fallback =
-          NavigationStackItem.home();
+      const fallback = NavigationStackItem.home();
       if (items.isNotEmpty && items.first is NavigationStackItemHome) {
         items[0] = fallback;
       } else {
@@ -64,15 +75,17 @@ class MainRouterInformationParser
     final location =
         configuration.items.fold<String>('', (previousValue, element) {
       return previousValue +
-          element.when(
-            home: () => '/${Keys.home}',
-            restaurantDetails: (restaurant) => '/${Keys.restaurantDetails}',
-            makeReservation: (restaurant) => '/${Keys.makeReservation}',
-          ).toString();
+          element
+              .when(
+                home: () => '/${Keys.home}',
+                restaurantDetails: (restaurant) => '/${Keys.restaurantDetails}',
+                makeReservation: (restaurant) => '/${Keys.makeReservation}',
+                reservationConfirmed: (reservation) => '/${Keys.reservationConfirmed}',
+              )
+              .toString();
     });
 
     ///Return null will be stay in first route page  , if we reached first page then location will empty
     return RouteInformation(location: location);
   }
 }
-

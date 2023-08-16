@@ -7,8 +7,9 @@ import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 class CommonCloseButton extends StatelessWidget {
   const CommonCloseButton({
-    super.key,
+    super.key, this.buttonColor,
   });
+  final Color? buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CommonCloseButton extends StatelessWidget {
           child: Text(
             AppString.keyClose,
             style: TextStyles.regular.copyWith(
-              color: AppColors.white,
+              color: buttonColor ?? AppColors.white,
             ),
           ),
         );

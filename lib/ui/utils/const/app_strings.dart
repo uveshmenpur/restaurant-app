@@ -48,8 +48,17 @@ class AppString {
       'A nice and big place to hang out with friends and family. Ambience – 4/5, well arranged. Lunch during summer is hectic. Food – 5/5, food is just amazing. Service – 3/5 (rather than becoming over friendly with guests, pl…';
   static const String keyReadMore = 'read more';
   static const String keyNana = 'Nana';
-  static const String keyRestaurantTermsAndCondition = 'Restaurant Terms & Conditions';
-  static const String keyTermsAndConditions = 'Please be informed of the following for your convenience: \nMaximum of 4 people per table \nAge Policy: 13 to 59 yrs old \nNo Alcohol and Live Music';
+  static const String keyRestaurantTermsAndCondition =
+      'Restaurant Terms & Conditions';
+  static const String keyYouWillReceive =
+      'YOU WILL RECEIVE AN SMS ONCE YOUR RESERVATION IS CONFIRMED';
+  static const String keyAwaitingConfirmation = 'Awaiting Confirmation';
+  static const String keyManageReservation = 'Manage Reservation';
+  static const String keyReservationId = 'Reservation ID: ';
+  static const String keyRateYourExperience =
+      'How would you rate your dining experience? ';
+  static const String keyTermsAndConditions =
+      'Please be informed of the following for your convenience: \nMaximum of 4 people per table \nAge Policy: 13 to 59 yrs old \nNo Alcohol and Live Music';
 
   static const restaurantDetailsTabs = [
     keyReviews,
@@ -87,28 +96,28 @@ class AppString {
     '12:15',
     '12:30',
     '12:45',
-    '01:00',
-    '01:15',
-    '01:30',
-    '01:45',
-    '02:00',
-    '02:15',
-    '02:30',
-    '02:45',
+    '13:00',
+    '13:15',
+    '13:30',
+    '13:45',
+    '14:00',
+    '14:15',
+    '14:30',
+    '14:45',
   ];
   static const dinnerTime = [
-    '07:00',
-    '07:15',
-    '07:30',
-    '07:45',
-    '08:00',
-    '08:15',
-    '08:30',
-    '08:45',
-    '09:00',
-    '09:15',
-    '09:30',
-    '09:45',
+    '19:00',
+    '19:15',
+    '19:30',
+    '19:45',
+    '20:00',
+    '20:15',
+    '20:30',
+    '20:45',
+    '21:00',
+    '21:15',
+    '21:30',
+    '21:45',
   ];
   static const perks = [
     keyGoodForGroups,

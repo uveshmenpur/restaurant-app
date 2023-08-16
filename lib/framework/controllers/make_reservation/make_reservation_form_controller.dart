@@ -17,10 +17,12 @@ class MakeReservationFormController extends ChangeNotifier {
   FocusNode phoneNumberNode = FocusNode();
   FocusNode emailNode = FocusNode();
   FocusNode specialRequestNode = FocusNode();
-  CountryCode code = CountryCode(name: 'Saudi Arab',flagUri: '',code: 'ABC',dialCode: '+91');
+  CountryCode code = CountryCode(
+      name: 'Saudi Arab', flagUri: '', code: 'ABC', dialCode: '+91');
 
   List<FocusNode> nodes = [];
 
+  ///add nodes in list so we can handle them using index
   void assignNodes() {
     nodes = [
       firstNameNode,
@@ -31,21 +33,8 @@ class MakeReservationFormController extends ChangeNotifier {
     ];
   }
 
-  String _firstName = '';
-  String _lastname = '';
-  String _phoneNumber = '';
-  String _email = '';
-  String? _specialRequest = '';
-
-  String get firstName => _firstName;
-
-  set firstName(String value) {
-    _firstName = value;
-  }
-
-  // Returns the appropriate validator function based on the field index
-  String? Function(String?)? getValidator(
-      int index) {
+  /// Returns the appropriate validator function based on the field index
+  String? Function(String?)? getValidator(int index) {
     if (index == 2) {
       return (value) {
         if (value != null && value.length == 10 && value.validatePhoneNumber) {
@@ -84,15 +73,26 @@ class MakeReservationFormController extends ChangeNotifier {
 
   GlobalKey get formKey => _formKey;
 
-  void changeCountryCode(CountryCode code){
+  void changeCountryCode(CountryCode code) {
     this.code = code;
-    notify();
+    notifyListeners();
   }
+
   void validate() {
     _formKey.currentState?.validate();
-    notify();
+    notifyListeners();
   }
-  void notify(){
+
+  String _firstName = '';
+  String _lastname = '';
+  String _phoneNumber = '';
+  String _email = '';
+  String? _specialRequest = '';
+
+  String get firstName => _firstName;
+
+  set firstName(String value) {
+    _firstName = value;
     notifyListeners();
   }
 
@@ -100,23 +100,27 @@ class MakeReservationFormController extends ChangeNotifier {
 
   set lastname(String value) {
     _lastname = value;
+    notifyListeners();
   }
 
   String get phoneNumber => _phoneNumber;
 
   set phoneNumber(String value) {
     _phoneNumber = value;
+    notifyListeners();
   }
 
   String get email => _email;
 
   set email(String value) {
     _email = value;
+    notifyListeners();
   }
 
   String? get specialRequest => _specialRequest;
 
   set specialRequest(String? value) {
     _specialRequest = value;
+    notifyListeners();
   }
 }

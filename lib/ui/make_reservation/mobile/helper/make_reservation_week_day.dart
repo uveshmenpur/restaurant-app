@@ -15,7 +15,7 @@ class MakeReservationWeekDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50.w,
+      width: 53.w,
       height: 50.h,
       decoration: const BoxDecoration(
         color: AppColors.makeReservationBgColor,

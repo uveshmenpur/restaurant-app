@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/dependency_injection/inject.dart';
 import 'package:restaurant/ui/routing/delegate.dart';
 import 'package:restaurant/ui/routing/parser.dart';
@@ -9,8 +10,13 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureMainDependencies(environment: Env.dev);
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      child: ScreenUtilInit(
+        builder: (BuildContext context, Widget? child) {
+          return MyApp();
+        },
+      ),
+    // child: MyApp(),
     ),
   );
 }

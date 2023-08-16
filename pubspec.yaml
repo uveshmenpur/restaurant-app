@@ -44,6 +44,7 @@ dependencies:
   country_list_pick:
   email_validator:
   country_code_picker: ^3.0.0
+  flutter_rating_bar: ^4.0.1
 
 
 dev_dependencies:

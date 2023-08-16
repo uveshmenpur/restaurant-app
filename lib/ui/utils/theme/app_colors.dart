@@ -7,6 +7,7 @@ class AppColors {
   static const searchBarText = Color(0xff100F0E);
   static const white = Color(0xffFFFFFF);
   static const black = Color(0xff000000);
+  static const red = Color(0xffFF3B00);
   static const makeReservationBgColor = Color(0xffF9F3F2);
   static const sliderRangeColor = Color(0xffAFA9A5);
   static const bannerGrey = Color(0xffCECDCD);

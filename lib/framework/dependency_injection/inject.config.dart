@@ -13,20 +13,23 @@ import 'package:flutter/material.dart' as _i8;
 import 'package:flutter_riverpod/flutter_riverpod.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:restaurant/framework/controllers/home/home_controller.dart' as _i3;
+import 'package:restaurant/framework/controllers/home/home_controller.dart'
+    as _i3;
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart'
     as _i9;
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_form_controller.dart'
     as _i10;
-import 'package:restaurant/framework/controllers/restaurant_details/restaurant_details_controller.dart'
+import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_watch.dart'
     as _i12;
+import 'package:restaurant/framework/controllers/restaurant_details/restaurant_details_controller.dart'
+    as _i13;
 import 'package:restaurant/ui/routing/delegate.dart' as _i4;
 import 'package:restaurant/ui/routing/navigation_stack_item.dart' as _i11;
 import 'package:restaurant/ui/routing/parser.dart' as _i6;
 import 'package:restaurant/ui/routing/stack.dart' as _i5;
 
 extension GetItInjectableX on _i1.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,
@@ -61,8 +64,10 @@ extension GetItInjectableX on _i1.GetIt {
       _,
     ) =>
         _i5.NavigationStack(items));
-    gh.factory<_i12.RestaurantDetailsController>(
-        () => _i12.RestaurantDetailsController());
+    gh.factory<_i12.ReservationConfirmedController>(
+        () => _i12.ReservationConfirmedController());
+    gh.factory<_i13.RestaurantDetailsController>(
+        () => _i13.RestaurantDetailsController());
     return this;
   }
 }

@@ -8,6 +8,7 @@ import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_we
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+///CUSTOM DATE PICKER WIDGET FOR MAKE RESERVATION SCREEN
 class MakeReservationDatePicker extends ConsumerWidget {
   const MakeReservationDatePicker({super.key});
 
@@ -20,15 +21,27 @@ class MakeReservationDatePicker extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MonthNameDisplay(month: now.month,),
+          MonthNameDisplay(
+            month: now.month,
+          ),
           const WeekDayList(),
-          DateList(makeReservationWatch: makeReservationWatch, now: now,num: 0,),
-          MonthNameDisplay(month: now.month + 1,),
+          DateList(
+            makeReservationWatch: makeReservationWatch,
+            now: now,
+            num: 0,
+          ),
+          MonthNameDisplay(
+            month: now.month + 1,
+          ),
           const WeekDayList(),
-          DateList(makeReservationWatch: makeReservationWatch, now: now,num: 1,),
+          DateList(
+            makeReservationWatch: makeReservationWatch,
+            now: now,
+            num: 1,
+          ),
           SizedBox(
             height: 20.h,
-          )
+          ),
         ],
       ),
     );
@@ -39,7 +52,8 @@ class DateList extends StatelessWidget {
   const DateList({
     super.key,
     required this.makeReservationWatch,
-    required this.now, required this.num,
+    required this.now,
+    required this.num,
   });
 
   final MakeReservationController makeReservationWatch;
@@ -56,7 +70,9 @@ class DateList extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 7,
         ),
-        itemCount: DateTime(DateTime.now().year, DateTime.now().month + num + 1, 0).day,
+        itemCount:
+            DateTime(DateTime.now().year, DateTime.now().month + num + 1, 0)
+                .day,
         itemBuilder: (BuildContext context, int index) {
           int date = makeReservationWatch.dateTime.day;
           if (index + 1 >= date || num == 1) {
@@ -84,10 +100,14 @@ class DateList extends StatelessWidget {
   }
 }
 
+/// TO DISPLAY MONTH IN DATE PICKER
 class MonthNameDisplay extends StatelessWidget {
   const MonthNameDisplay({
-    super.key, required this.month, this.height,
+    super.key,
+    required this.month,
+    this.height,
   });
+
   final int month;
   final double? height;
 
@@ -98,7 +118,7 @@ class MonthNameDisplay extends StatelessWidget {
       height: height ?? 120.h,
       child: Center(
         child: Text(
-          DateTime(2023,month).monthName,
+          DateTime(2023, month).monthName,
           style: TextStyles.semiBold.copyWith(
             color: AppColors.black,
             fontSize: 24.sp,
@@ -109,6 +129,7 @@ class MonthNameDisplay extends StatelessWidget {
   }
 }
 
+/// TO DISPLAY WEEKDAYS LIST IN DATE PICKER
 class WeekDayList extends StatelessWidget {
   const WeekDayList({
     super.key,

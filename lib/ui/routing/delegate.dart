@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/ui/home/home.dart';
 import 'package:restaurant/ui/make_reservation/make_reservation.dart';
+import 'package:restaurant/ui/make_reservation/reservation_confirmed.dart';
 import 'package:restaurant/ui/restaurant_details/restaurant_details.dart';
 import 'package:restaurant/ui/routing/navigation_stack_keys.dart';
 import 'package:restaurant/ui/routing/stack.dart';
@@ -63,10 +64,11 @@ class MainRouterDelegate extends RouterDelegate<NavigationStack>
                   restaurant: restaurant,
                 ),
                 key: const ValueKey(Keys.restaurantDetails)),
-    makeReservation: (restaurant) => MaterialPage(
-      child: MakeReservation(restaurant: restaurant),
-      key: const ValueKey(Keys.makeReservation),
-    ),
+            makeReservation: (restaurant) => MaterialPage(
+              child: MakeReservation(restaurant: restaurant),
+              key: const ValueKey(Keys.makeReservation),
+            ),
+    reservationConfirmed: (reservation) => MaterialPage(child: ReservationConfirmed(reservation: reservation,),key: const ValueKey(Keys.reservationConfirmed)),
           ))
       .toList();
 

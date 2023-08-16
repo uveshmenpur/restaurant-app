@@ -12,11 +12,12 @@ final makeReservationController = ChangeNotifierProvider((ref) {
 class MakeReservationController extends ChangeNotifier {
   ///All the reservation related date,time,weekday is manages in this controller
   DateTime dateTime = DateTime.now();
+  DateTime selected = DateTime.now();
   int selectedDay = DateTime.now().day;
   int selectedMonth = DateTime.now().month;
   int selectedPage = 1;
   String selectedTime = '13:00';
-  String selectedReservationTime = '';
+  DateTime selectedReservationTime = DateTime.now();
   int daysLeftInMonth =
       DateTime(DateTime.now().year, DateTime.now().month + 1, 0).day -
           DateTime.now().day;
@@ -25,25 +26,27 @@ class MakeReservationController extends ChangeNotifier {
   int selectedPersonCount = 0;
   int reservationTime = 0;
 
-
   String weekDayByDate() {
     return DateTime(DateTime.now().year, selectedMonth, selectedDay)
         .weekdayName;
   }
 
+  ///Manages BreakFast, Lunch And Dinner
   void setTime(String newTime) {
     selectedTime = newTime;
     notifyListeners();
   }
 
+  ///Manages BreakFast, Lunch And Dinner TabBar
   void setReservationTime(int newTime) {
     reservationTime = newTime;
     notifyListeners();
   }
 
+  ///Setting Reservation Time
   void setSelectedReservationTime() {
-    selectedReservationTime =
-        '${weekDayByDate()},$selectedDay,${DateTime(dateTime.year, selectedMonth).monthName},$reservationTime';
+    selectedReservationTime = DateTime.parse(
+        '${DateTime.now().year}-${selectedMonth > 9 ? selectedMonth : '0$selectedMonth'}-${selectedDay > 9 ? selectedDay : '0$selectedDay'} $selectedTime');
     notifyListeners();
   }
 
