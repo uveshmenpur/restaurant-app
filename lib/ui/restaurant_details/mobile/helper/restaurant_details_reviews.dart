@@ -3,14 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/person_profile.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/restaurant_review.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantDetailsReview extends StatelessWidget {
+class RestaurantDetailsReview extends StatelessWidget with BaseStatelessWidget{
   const RestaurantDetailsReview({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(

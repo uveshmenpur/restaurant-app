@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/controllers/restaurant_details/restaurant_details_controller.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantDetailsTabBar extends StatelessWidget {
+class RestaurantDetailsTabBar extends StatelessWidget with BaseStatelessWidget{
   const RestaurantDetailsTabBar({
     super.key,
     required this.list,
@@ -19,7 +20,7 @@ class RestaurantDetailsTabBar extends StatelessWidget {
   final void Function(int) onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final makeReservationWatch = ref.watch(makeReservationController);

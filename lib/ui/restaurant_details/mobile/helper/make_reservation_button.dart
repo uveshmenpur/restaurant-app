@@ -5,11 +5,12 @@ import 'package:restaurant/framework/repository/home/model/restaurant.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 ///Make A Reservation Button
-class MakeReservationButton extends StatelessWidget {
+class MakeReservationButton extends StatelessWidget with BaseStatelessWidget {
   const MakeReservationButton({
     super.key,
     this.restaurant,
@@ -20,7 +21,7 @@ class MakeReservationButton extends StatelessWidget {
   final void Function()? onTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         return SizedBox(

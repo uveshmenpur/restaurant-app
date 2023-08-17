@@ -3,16 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/utility/extension/int.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class MakeReservationTabBar extends StatelessWidget {
+class MakeReservationTabBar extends StatelessWidget with BaseStatelessWidget {
   const MakeReservationTabBar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final makeReservationWatch = ref.watch(makeReservationController);

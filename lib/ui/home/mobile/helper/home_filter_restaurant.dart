@@ -3,14 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/home/home_controller.dart';
 import 'package:restaurant/ui/home/mobile/helper/home_filter_range_slider.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 
 ///Restaurant Filter Range-Sliders
-class HomeFilterRestaurant extends ConsumerWidget {
+class HomeFilterRestaurant extends ConsumerWidget with BaseConsumerWidget{
   const HomeFilterRestaurant({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildPage(BuildContext context, WidgetRef ref) {
     final homeWatch = ref.watch(homeController);
     return Visibility(
       visible: homeWatch.isFilterVisible,

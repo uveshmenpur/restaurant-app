@@ -3,17 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/home/home_controller.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 ///Covid Banner Displayed on app start
-class HomeCovidBanner extends StatelessWidget {
+class HomeCovidBanner extends StatelessWidget with BaseStatelessWidget{
   const HomeCovidBanner({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         return Visibility(

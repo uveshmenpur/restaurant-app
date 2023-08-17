@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class MakeReservationIndex extends StatelessWidget {
+class MakeReservationIndex extends StatelessWidget with BaseStatelessWidget{
   const MakeReservationIndex({
     super.key,
     required this.index,
@@ -29,7 +30,7 @@ class MakeReservationIndex extends StatelessWidget {
   final void Function()? onItemTapped;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return InkWell(
       onTap: onItemTapped ??
           () {

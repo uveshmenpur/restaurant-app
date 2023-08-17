@@ -7,12 +7,13 @@ import 'package:restaurant/ui/home/mobile/helper/home_search_bar.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_card.dart';
 
 ///Home-Screen Body Widget
-class HomeBodyWidget extends StatelessWidget {
+class HomeBodyWidget extends StatelessWidget with BaseStatelessWidget {
   const HomeBodyWidget({
     super.key,
     required this.ref,
@@ -21,7 +22,7 @@ class HomeBodyWidget extends StatelessWidget {
   final WidgetRef ref;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     final homeWatch = ref.watch(homeController);
     return SingleChildScrollView(
       child: Column(
@@ -72,7 +73,7 @@ class HomeBodyWidget extends StatelessWidget {
           const HomeFilterRestaurant(),
           ...List.generate(
             homeWatch.restaurants.length,
-                (index) {
+            (index) {
               final restaurant = homeWatch.restaurants[index];
               return InkWell(
                 onTap: () {

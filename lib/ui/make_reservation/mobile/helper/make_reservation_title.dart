@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class MakeReservationTitle extends StatelessWidget {
+class MakeReservationTitle extends StatelessWidget with BaseStatelessWidget{
   const MakeReservationTitle({
     super.key, required this.title, this.height, this.fontSize, this.fontColor,
   });
@@ -13,7 +14,7 @@ class MakeReservationTitle extends StatelessWidget {
   final Color? fontColor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

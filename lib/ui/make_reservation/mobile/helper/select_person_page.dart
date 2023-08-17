@@ -3,12 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_index.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 
-class SelectPersonPage extends StatelessWidget {
+class SelectPersonPage extends StatelessWidget with BaseStatelessWidget{
   const SelectPersonPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Column(
       children: [
         SizedBox(

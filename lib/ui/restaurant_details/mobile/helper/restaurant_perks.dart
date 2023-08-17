@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantPerks extends StatelessWidget {
+class RestaurantPerks extends StatelessWidget with BaseStatelessWidget {
   const RestaurantPerks({super.key, required this.restaurantPerk, this.prefix, this.lineHeight, this.text});
 
   final String restaurantPerk;
@@ -12,7 +13,7 @@ class RestaurantPerks extends StatelessWidget {
   final double? lineHeight;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

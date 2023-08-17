@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_form_controller.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class CommonTextField extends StatelessWidget {
+class CommonTextField extends StatelessWidget with BaseStatelessWidget{
   const CommonTextField({
     super.key,
     required this.controller,
@@ -33,7 +34,7 @@ class CommonTextField extends StatelessWidget {
   final int? maxLines;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return TextFormField(
       focusNode: node,
       style: TextStyles.medium.copyWith(

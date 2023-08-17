@@ -5,15 +5,16 @@ import 'package:restaurant/framework/controllers/make_reservation/make_reservati
 import 'package:restaurant/framework/utility/extension/date_time.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_date_index.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_week_day.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 ///CUSTOM DATE PICKER WIDGET FOR MAKE RESERVATION SCREEN
-class MakeReservationDatePicker extends ConsumerWidget {
+class MakeReservationDatePicker extends ConsumerWidget with BaseConsumerWidget{
   const MakeReservationDatePicker({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildPage(BuildContext context, WidgetRef ref) {
     final now = DateTime.now();
     final makeReservationWatch = ref.watch(makeReservationController);
     return SingleChildScrollView(
@@ -48,7 +49,7 @@ class MakeReservationDatePicker extends ConsumerWidget {
   }
 }
 
-class DateList extends StatelessWidget {
+class DateList extends StatelessWidget with BaseStatelessWidget{
   const DateList({
     super.key,
     required this.makeReservationWatch,
@@ -61,7 +62,7 @@ class DateList extends StatelessWidget {
   final int num;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: 290.h,
@@ -101,7 +102,7 @@ class DateList extends StatelessWidget {
 }
 
 /// TO DISPLAY MONTH IN DATE PICKER
-class MonthNameDisplay extends StatelessWidget {
+class MonthNameDisplay extends StatelessWidget with BaseStatelessWidget{
   const MonthNameDisplay({
     super.key,
     required this.month,
@@ -112,7 +113,7 @@ class MonthNameDisplay extends StatelessWidget {
   final double? height;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: height ?? 120.h,
@@ -130,13 +131,13 @@ class MonthNameDisplay extends StatelessWidget {
 }
 
 /// TO DISPLAY WEEKDAYS LIST IN DATE PICKER
-class WeekDayList extends StatelessWidget {
+class WeekDayList extends StatelessWidget with BaseStatelessWidget{
   const WeekDayList({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: 40.h,

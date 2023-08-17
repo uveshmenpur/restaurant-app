@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/person_profile.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantReview extends StatelessWidget {
+class RestaurantReview extends StatelessWidget with BaseStatelessWidget{
   const RestaurantReview(
       {super.key, this.hasTitle = false, required this.name});
 
@@ -13,7 +14,7 @@ class RestaurantReview extends StatelessWidget {
   final String name;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: Row(

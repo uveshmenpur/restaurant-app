@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 ///Card that Displays Restaurant Information
-class RestaurantDetailsCard extends StatelessWidget {
+class RestaurantDetailsCard extends StatelessWidget with BaseStatelessWidget{
   const RestaurantDetailsCard({
     super.key,
     required this.restaurant,
@@ -14,7 +15,7 @@ class RestaurantDetailsCard extends StatelessWidget {
   final Restaurant restaurant;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Container(
       height: 175.h,
       width: double.infinity,

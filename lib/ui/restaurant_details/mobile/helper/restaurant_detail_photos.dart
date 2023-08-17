@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_assets.dart';
 
 ///Restaurant Images in Restaurant Details page
-class RestaurantDetailPhotos extends StatelessWidget {
+class RestaurantDetailPhotos extends StatelessWidget with BaseStatelessWidget{
   const RestaurantDetailPhotos({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return GridView(
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

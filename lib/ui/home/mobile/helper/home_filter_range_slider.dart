@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 ///Common Filter Restaurant Slider
-class RangeFilterSlider extends StatelessWidget {
+class RangeFilterSlider extends StatelessWidget with BaseStatelessWidget{
   const RangeFilterSlider({
     super.key,
     required this.title,
@@ -23,7 +24,7 @@ class RangeFilterSlider extends StatelessWidget {
   final Widget? icon;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class CommonCloseButton extends StatelessWidget {
+class CommonCloseButton extends StatelessWidget with BaseStatelessWidget{
   const CommonCloseButton({
     super.key, this.buttonColor,
   });
   final Color? buttonColor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Consumer(
       builder:
           (BuildContext context, WidgetRef ref, Widget? child) {

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantCard extends StatelessWidget {
+class RestaurantCard extends StatelessWidget with BaseStatelessWidget{
   const RestaurantCard({
     super.key,
     required this.image,
@@ -25,7 +26,7 @@ class RestaurantCard extends StatelessWidget {
   final String price;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
       child: Stack(

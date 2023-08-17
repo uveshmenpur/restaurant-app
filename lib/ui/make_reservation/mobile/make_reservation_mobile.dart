@@ -10,16 +10,17 @@ import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_ta
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_title.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/select_person_page.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_time_picker.dart';
 
-class MakeReservationMobile extends StatelessWidget {
+class MakeReservationMobile extends StatelessWidget with BaseStatelessWidget{
   const MakeReservationMobile({super.key, required this.restaurant});
 
   final Restaurant restaurant;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.makeReservationBgColor,
       body: SingleChildScrollView(

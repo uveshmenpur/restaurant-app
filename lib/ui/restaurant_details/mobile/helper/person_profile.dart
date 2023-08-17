@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 
-class PersonProfile extends StatelessWidget {
+class PersonProfile extends StatelessWidget with BaseStatelessWidget{
   const PersonProfile({
     super.key, this.size, this.iconSize,
   });
@@ -11,7 +12,7 @@ class PersonProfile extends StatelessWidget {
   final double? iconSize;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Container(
       width: size?.w ?? 32.w,
       height: size?.h ?? 32.h,

@@ -5,18 +5,19 @@ import 'package:restaurant/framework/controllers/make_reservation/make_reservati
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
 import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_select_time.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_details_tab_bar.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class MakeReservationTimePicker extends StatelessWidget {
+class MakeReservationTimePicker extends StatelessWidget with BaseStatelessWidget{
   const MakeReservationTimePicker({super.key, this.restaurant});
 
   final Restaurant? restaurant;
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

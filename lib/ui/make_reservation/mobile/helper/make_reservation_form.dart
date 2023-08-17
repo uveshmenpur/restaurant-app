@@ -10,17 +10,18 @@ import 'package:restaurant/framework/repository/make_reservation/reservation.dar
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/stack.dart';
+import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 import 'package:restaurant/ui/utils/widgets/common_text_field.dart';
 
-class MakeReservationForm extends ConsumerWidget {
+class MakeReservationForm extends ConsumerWidget with BaseConsumerWidget{
   const MakeReservationForm({super.key, required this.restaurant});
 
   final Restaurant restaurant;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildPage(BuildContext context, WidgetRef ref) {
     final makeReservationWatch = ref.watch(makeReservationController);
     final makeReservationFormWatch = ref.watch(makeReservationFormController);
     final reservationConfirmedWatch = ref.watch(reservationConfirmedController);
