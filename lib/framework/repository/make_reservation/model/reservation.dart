@@ -8,10 +8,10 @@ class Reservation {
     required this.restaurant,
     this.reservationId,
     this.isAwaitingConfirmation = false,
-    this.isPrevious = true,
+    this.isPrevious = false,
     this.isManageReservationEnabled = false,
     this.isRated = false,
-    this.rating
+    this.rating = 0
   });
 
   final Restaurant restaurant;

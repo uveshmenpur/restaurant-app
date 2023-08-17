@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant/framework/repository/make_reservation/reservation.dart';
+import 'package:restaurant/framework/repository/make_reservation/model/reservation.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';

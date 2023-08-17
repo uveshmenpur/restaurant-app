@@ -7,7 +7,9 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class CommonHomeTabBar extends ConsumerWidget with BaseConsumerWidget implements PreferredSizeWidget {
+class CommonHomeTabBar extends ConsumerWidget
+    with BaseConsumerWidget
+    implements PreferredSizeWidget {
   const CommonHomeTabBar({
     super.key,
   });
@@ -20,126 +22,60 @@ class CommonHomeTabBar extends ConsumerWidget with BaseConsumerWidget implements
   @override
   Widget buildPage(BuildContext context, WidgetRef ref) {
     final homeWatch = ref.watch(homeController);
-    return Row(
-      children: [
-        InkWell(
-          onTap: () {
-            homeWatch.jumpToPage(0);
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                padding: EdgeInsets.only(bottom: 7.h),
-                child: Text(
-                  AppString.keyFavourites,
-                  style: TextStyles.regular.copyWith(
-                    color: homeWatch.selectedPage == 0
-                        ? AppColors.white
-                        : AppColors.white.withOpacity(0.6),
-                    fontSize: 16.sp,
-                    fontWeight: TextStyles.fwSemiBold,
-                  ),
-                ),
-              ),
-              homeWatch.selectedPage == 0
-                  ? Container(
-                      width: 20.w,
-                      height: 5.h,
-                      padding: EdgeInsets.zero,
-                      decoration: const BoxDecoration(
-                        color: AppColors.white,
+    return SizedBox(
+      width: double.infinity,
+      height: 33.h,
+      child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                homeWatch.jumpToPage(index);
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    padding: EdgeInsets.only(bottom: 7.h),
+                    child: Text(
+                      index == 0
+                          ? AppString.keyNearBy
+                          : index == 1
+                              ? AppString.keyFavourites
+                              : AppString.keyReservations,
+                      style: TextStyles.regular.copyWith(
+                        color: homeWatch.selectedPage == index
+                            ? AppColors.white
+                            : AppColors.white.withOpacity(0.6),
+                        fontSize: 16.sp,
+                        fontWeight: TextStyles.fwSemiBold,
                       ),
-                    )
-                  : const SizedBox(),
-            ],
-          ),
-        ),
-        SizedBox(
-          width: 30.w,
-        ),
-        InkWell(
-          onTap: () {
-            homeWatch.jumpToPage(1);
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                padding: EdgeInsets.only(bottom: 7.h),
-                child: Text(
-                  AppString.keyReservations,
-                  style: TextStyles.regular.copyWith(
-                    color: homeWatch.selectedPage == 1
-                        ? AppColors.white
-                        : AppColors.white.withOpacity(0.6),
-                    fontSize: 16.sp,
-                    fontWeight: TextStyles.fwSemiBold,
+                    ),
                   ),
-                ),
+                  homeWatch.selectedPage == index
+                      ? Container(
+                          width: 20.w,
+                          height: 5.h,
+                          padding: EdgeInsets.zero,
+                          decoration: const BoxDecoration(
+                            color: AppColors.white,
+                          ),
+                        )
+                      : const SizedBox(),
+                ],
               ),
-              homeWatch.selectedPage == 1
-                  ? Container(
-                      width: 20.w,
-                      height: 5.h,
-                      padding: EdgeInsets.zero,
-                      decoration: const BoxDecoration(
-                        color: AppColors.white,
-                      ),
-                    )
-                  : const SizedBox(),
-            ],
-          ),
-        ),
-        SizedBox(
-          width: 30.w,
-        ),
-        InkWell(
-          onTap: () {
-            homeWatch.jumpToPage(2);
+            );
           },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                padding: EdgeInsets.only(bottom: 7.h),
-                child: Text(
-                  AppString.keyNearBy,
-                  style: TextStyles.regular.copyWith(
-                    color: homeWatch.selectedPage == 2
-                        ? AppColors.white
-                        : AppColors.white.withOpacity(0.6),
-                    fontSize: 16.sp,
-                    fontWeight: TextStyles.fwSemiBold,
-                  ),
-                ),
-              ),
-              homeWatch.selectedPage == 2
-                  ? Container(
-                      width: 20.w,
-                      height: 5.h,
-                      padding: EdgeInsets.zero,
-                      decoration: const BoxDecoration(
-                        color: AppColors.white,
-                      ),
-                    )
-                  : const SizedBox(),
-            ],
-          ),
-        ),
-      ],
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              width: 30.w,
+            );
+          },
+          itemCount: 3),
     );
   }
 }

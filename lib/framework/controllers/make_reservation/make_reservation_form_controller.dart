@@ -34,40 +34,34 @@ class MakeReservationFormController extends ChangeNotifier {
   }
 
   /// Returns the appropriate validator function based on the field index
-  String? Function(String?)? getValidator(int index) {
+  String? getValidator(int index,String? value) {
     if (index == 2) {
-      return (value) {
-        if (value != null && value.length == 10 && value.validatePhoneNumber) {
-          _phoneNumber = value;
-          return null;
-        } else {
-          return 'Invalid Phone';
-        }
-      };
+      if (value != null && value.length == 10 && value.validatePhoneNumber) {
+        _phoneNumber = value;
+        return null;
+      } else {
+        return '    Invalid Phone';
+      }
     } else if (index == 3) {
-      return (value) {
-        if (value != null && value.validateEmail) {
-          _email = value;
-          return null;
-        } else {
-          return 'Enter Valid Email';
-        }
-      };
+      if (value != null && value.validateEmail) {
+        _email = value;
+        return null;
+      } else {
+        return 'Enter Valid Email';
+      }
     } else {
-      return (value) {
-        if (value != null && (value.isNotEmpty || index == 4)) {
-          if (index == 0) {
-            _firstName = value;
-          } else if (index == 1) {
-            _lastname = value;
-          } else if (index == 4) {
-            _specialRequest = value;
-          }
-          return null;
-        } else {
-          return 'Invalid Input';
+      if (value != null && (value.isNotEmpty || index == 4)) {
+        if (index == 0) {
+          _firstName = value;
+        } else if (index == 1) {
+          _lastname = value;
+        } else if (index == 4) {
+          _specialRequest = value;
         }
-      };
+        return null;
+      } else {
+        return 'Invalid Input';
+      }
     }
   }
 
@@ -78,9 +72,8 @@ class MakeReservationFormController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void validate() {
-    _formKey.currentState?.validate();
-    notifyListeners();
+  bool validate() {
+    return _formKey.currentState!.validate();
   }
 
   String _firstName = '';

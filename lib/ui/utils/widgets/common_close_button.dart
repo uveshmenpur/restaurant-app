@@ -6,19 +6,22 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class CommonCloseButton extends StatelessWidget with BaseStatelessWidget{
+class CommonCloseButton extends StatelessWidget with BaseStatelessWidget {
   const CommonCloseButton({
-    super.key, this.buttonColor,
+    super.key,
+    this.buttonColor,
+    this.onTap,
   });
+
   final Color? buttonColor;
+  final void Function()? onTap;
 
   @override
   Widget buildPage(BuildContext context) {
     return Consumer(
-      builder:
-          (BuildContext context, WidgetRef ref, Widget? child) {
+      builder: (BuildContext context, WidgetRef ref, Widget? child) {
         return InkWell(
-          onTap: () {
+          onTap: onTap ?? () {
             ref.watch(navigationStackController).pop();
           },
           child: Text(

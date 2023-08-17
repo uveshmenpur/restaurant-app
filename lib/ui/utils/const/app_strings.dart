@@ -10,9 +10,14 @@ class AppString {
   static const String key142Other = '142 others ';
   static const String keyHaveRecommended =
       'have recommended this place - try it!';
+  static const String keyCancelReservation = 'CANCEL RESERVATION';
+  static const String keyMakeChanges = 'MAKE CHANGES';
   static const String keyNearBy = 'NearBy';
   static const String keyFavourites = 'Favourites';
   static const String keyReservations = 'Reservation';
+  static const String keyYourReservation = 'YOUR RESERVATIONS';
+  static const String keyUpcoming = 'Upcoming';
+  static const String keyPrevious = 'Previous';
   static const String keyThomson = 'Thomson';
   static const String keyFilter = 'FILTER';
   static const String keyThreeDollars = '\$\$\$';

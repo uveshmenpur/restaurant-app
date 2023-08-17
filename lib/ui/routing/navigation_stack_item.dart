@@ -1,7 +1,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/framework/repository/make_reservation/reservation.dart';
+import 'package:restaurant/framework/repository/make_reservation/model/reservation.dart';
 part 'navigation_stack_item.freezed.dart';
 
 @freezed

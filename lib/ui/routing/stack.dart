@@ -1,22 +1,25 @@
 import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 
-final navigationStackController = ChangeNotifierProvider((ref) => NavigationStack([
-   const NavigationStackItem.home(),
-]));
-
-
+final navigationStackController =
+    ChangeNotifierProvider((ref) => NavigationStack([
+          const NavigationStackItem.home(),
+        ]));
 
 @injectable
 class NavigationStack with ChangeNotifier {
   List<NavigationStackItem> _items;
-  NavigationStack(@factoryParam List<NavigationStackItem> items) : _items = List.of(items);
+
+  NavigationStack(@factoryParam List<NavigationStackItem> items)
+      : _items = List.of(items);
 
   UnmodifiableListView<NavigationStackItem> get items =>
       UnmodifiableListView(_items);
+
   set items(List<NavigationStackItem> newItems) {
     _items = List.from(newItems);
     notifyListeners();
@@ -36,6 +39,11 @@ class NavigationStack with ChangeNotifier {
 
   void push(NavigationStackItem item) {
     _items.add(item);
+    notifyListeners();
+  }
+
+  void popFirst() {
+    _items.removeAt(0);
     notifyListeners();
   }
 

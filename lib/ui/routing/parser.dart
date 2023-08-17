@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/framework/repository/make_reservation/reservation.dart';
+import 'package:restaurant/framework/repository/make_reservation/model/reservation.dart';
 import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/navigation_stack_keys.dart';
 import 'package:restaurant/ui/routing/stack.dart';

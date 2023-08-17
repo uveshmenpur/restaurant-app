@@ -13,7 +13,7 @@ Future<void> main() async {
     ProviderScope(
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {
-          return MyApp();
+          return const MyApp();
         },
       ),
     // child: MyApp(),

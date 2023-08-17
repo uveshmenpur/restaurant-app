@@ -19,7 +19,7 @@ import 'package:restaurant/framework/controllers/make_reservation/make_reservati
     as _i9;
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_form_controller.dart'
     as _i10;
-import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_watch.dart'
+import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_controller.dart'
     as _i12;
 import 'package:restaurant/framework/controllers/restaurant_details/restaurant_details_controller.dart'
     as _i13;
