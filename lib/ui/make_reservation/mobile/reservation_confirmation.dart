@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_controller.dart';
 import 'package:restaurant/framework/repository/make_reservation/model/reservation.dart';
+import 'package:restaurant/ui/routing/navigation_stack_item.dart';
+import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
@@ -8,7 +12,8 @@ import 'package:restaurant/ui/utils/theme/text_style.dart';
 import 'package:restaurant/ui/utils/widgets/common_close_button.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_reservation_card.dart';
 
-class ReservationConfirmedMobile extends StatelessWidget with BaseStatelessWidget{
+class ReservationConfirmedMobile extends StatelessWidget
+    with BaseStatelessWidget {
   const ReservationConfirmedMobile({super.key, required this.reservation});
 
   final Reservation reservation;
@@ -60,8 +65,29 @@ class ReservationConfirmedMobile extends StatelessWidget with BaseStatelessWidge
           SizedBox(
             height: 20.h,
           ),
-          RestaurantReservationCard(
-            reservation: reservation,
+          Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+              final reservationWatch =
+                  ref.watch(reservationConfirmedController);
+              reservationWatch.upcomingReservation.add(reservation);
+              return RestaurantReservationCard(
+                reservation: reservationWatch.upcomingReservation.last,
+                onRatingUpdate: (double value) {
+                  reservationWatch.updateUpcomingRating(reservationWatch.upcomingReservation.length-1, value);
+                },
+                onCloseTapped: () {
+                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length-1);
+                },
+                onCancelReservationTapped: () {
+                  reservationWatch.deleteUpcomingReservation(reservationWatch.upcomingReservation.length - 1);
+                  ref.watch(navigationStackController).popUntil(const NavigationStackItem.home());
+                },
+                onMakeChangesTapped: () {},
+                onManageReservationTapped: () {
+                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length);
+                },
+              );
+            },
           ),
         ],
       ),

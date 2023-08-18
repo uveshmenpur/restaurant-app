@@ -15,7 +15,6 @@ class HomeMobile extends ConsumerWidget with BaseConsumerWidget {
   Widget buildPage(BuildContext context, WidgetRef ref) {
     /// Watch the home controller for changes
     final homeWatch = ref.watch(homeController);
-    ref.watch(reservationConfirmedController).filterLists();
 
     return Scaffold(
       ///Common Appbar
@@ -25,9 +24,7 @@ class HomeMobile extends ConsumerWidget with BaseConsumerWidget {
         isFlexibleVisible: homeWatch.isBannerVisible,
       ),
       backgroundColor: AppColors.primaryBrown,
-      body: HomeBodyWidget(
-        ref: ref,
-      ),
+      body: HomeBodyWidget(),
     );
   }
 }

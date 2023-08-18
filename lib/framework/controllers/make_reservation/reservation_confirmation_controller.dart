@@ -32,22 +32,20 @@ class ReservationConfirmedController extends ChangeNotifier {
     notifyListeners();
   }
 
-
   void setReservation(Reservation newReservation) {
     reservation = newReservation;
     notifyListeners();
   }
-
-  void manageReservation() {
-    reservation.isManageReservationEnabled =
-        !reservation.isManageReservationEnabled;
+  void updatePreviousRating(int index,double value){
+    previousReservation[index].rating = value.toInt();
+    notifyListeners();
+  }
+  void updateUpcomingRating(int index,double value){
+    upcomingReservation[index].rating = value.toInt();
+    print('$index $value ${upcomingReservation[index].rating}');
     notifyListeners();
   }
 
-  void isAwaitingConfirmation() {
-    reservation.isAwaitingConfirmation = !reservation.isAwaitingConfirmation;
-    notifyListeners();
-  }
 
   List<Reservation> reservations = [
     Reservation(
@@ -129,5 +127,29 @@ class ReservationConfirmedController extends ChangeNotifier {
         .where((reservation) =>
             reservation.reservationTime.isAfter(DateTime.now()))
         .toList();
+    upcomingReservation.last.isAwaitingConfirmation = true;
+    previousReservation.forEach((element) {
+      element.isPrevious = true;
+    });
+    notifyListeners();
+  }
+
+  void manageUpcomingReservation(int index) {
+    upcomingReservation[index].isManageReservationEnabled =
+        !upcomingReservation[index].isManageReservationEnabled;
+    notifyListeners();
+  }
+
+  void deleteUpcomingReservation(int index) {
+    upcomingReservation.removeAt(index);
+    notifyListeners();
+  }
+  void removeUpcomingAtIndex(int index){
+    upcomingReservation.removeAt(index);
+    notifyListeners();
+  }
+
+  void notify() {
+    notifyListeners();
   }
 }

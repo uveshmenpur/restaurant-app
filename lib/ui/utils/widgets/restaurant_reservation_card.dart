@@ -16,9 +16,19 @@ class RestaurantReservationCard extends StatelessWidget
   const RestaurantReservationCard({
     super.key,
     required this.reservation,
+    this.onManageReservationTapped,
+    this.onCancelReservationTapped,
+    this.onMakeChangesTapped,
+    this.onCloseTapped,
+    required this.onRatingUpdate,
   });
 
   final Reservation reservation;
+  final void Function()? onManageReservationTapped;
+  final void Function()? onCancelReservationTapped;
+  final void Function()? onMakeChangesTapped;
+  final void Function()? onCloseTapped;
+  final void Function(double value) onRatingUpdate;
 
   @override
   Widget buildPage(BuildContext context) {
@@ -33,9 +43,7 @@ class RestaurantReservationCard extends StatelessWidget
           builder: (BuildContext context, WidgetRef ref, Widget? child) {
             final reservationConfirmedWatch =
                 ref.watch(reservationConfirmedController);
-            reservationConfirmedWatch.setReservation(reservation);
-            return reservationConfirmedWatch
-                    .reservation.isManageReservationEnabled
+            return reservation.isManageReservationEnabled
                 ? Container(
                     color: AppColors.white,
                     child: Column(
@@ -67,7 +75,8 @@ class RestaurantReservationCard extends StatelessWidget
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20.w),
                           child: Text(
-                            reservationConfirmedWatch.reservation.restaurant.restaurantName,
+                            reservationConfirmedWatch
+                                .reservation.restaurant.restaurantName,
                             textAlign: TextAlign.center,
                             maxLines: 1,
                             overflow: TextOverflow.visible,
@@ -78,7 +87,7 @@ class RestaurantReservationCard extends StatelessWidget
                           ),
                         ),
                         Text(
-                          '${reservationConfirmedWatch.reservation.reservationTime.weekdayName}, ${reservationConfirmedWatch.reservation.reservationTime.day} ${reservationConfirmedWatch.reservation.reservationTime.monthName} \n ${reservationConfirmedWatch.reservation.reservationTime.hour}:${reservationConfirmedWatch.reservation.reservationTime.minute}',
+                          '${reservation.reservationTime.weekdayName}, ${reservation.reservationTime.day} ${reservation.reservationTime.monthName} \n ${reservation.reservationTime.hour}:${reservation.reservationTime.minute}',
                           style: TextStyles.medium.copyWith(
                             fontSize: 18.sp,
                             color: AppColors.primaryBrown,
@@ -98,7 +107,7 @@ class RestaurantReservationCard extends StatelessWidget
                               color: AppColors.selectedPageIndicatorColor,
                             ),
                             Text(
-                              ' ${reservationConfirmedWatch.reservation.peopleCount}',
+                              ' ${reservation.peopleCount}',
                               style: TextStyles.medium.copyWith(
                                 fontSize: 18.sp,
                                 color: AppColors.primaryBrown,
@@ -110,14 +119,7 @@ class RestaurantReservationCard extends StatelessWidget
                           height: 25.h,
                         ),
                         InkWell(
-                          onTap: () {
-                            if (reservationConfirmedWatch.upcomingReservation
-                                .contains(reservation)) {
-                              reservationConfirmedWatch.upcomingReservation
-                                  .remove(reservation);
-                              reservationConfirmedWatch.manageReservation();
-                            } else {}
-                          },
+                          onTap: onCancelReservationTapped,
                           child: Container(
                             width: 182.w,
                             height: 30.h,
@@ -138,6 +140,7 @@ class RestaurantReservationCard extends StatelessWidget
                           height: 30.h,
                         ),
                         InkWell(
+                          onTap: onMakeChangesTapped,
                           child: Container(
                             width: 182.w,
                             height: 30.h,
@@ -162,9 +165,7 @@ class RestaurantReservationCard extends StatelessWidget
                           height: 45.h,
                         ),
                         CommonCloseButton(
-                          onTap: () {
-                            reservationConfirmedWatch.manageReservation();
-                          },
+                          onTap: onCloseTapped,
                           buttonColor: AppColors.selectedPageIndicatorColor,
                         ),
                         SizedBox(
@@ -236,7 +237,7 @@ class RestaurantReservationCard extends StatelessWidget
                               color: AppColors.selectedPageIndicatorColor,
                             ),
                             Text(
-                              ' ${reservationConfirmedWatch.reservation.peopleCount}',
+                              ' ${reservation.peopleCount}',
                               style: TextStyles.medium.copyWith(
                                 fontSize: 18.sp,
                                 color: AppColors.primaryBrown,
@@ -244,8 +245,7 @@ class RestaurantReservationCard extends StatelessWidget
                             ),
                           ],
                         ),
-                        if (reservationConfirmedWatch
-                            .reservation.isPrevious) ...{
+                        if (reservation.isPrevious) ...{
                           ...[
                             SizedBox(
                               height: 20.h,
@@ -267,28 +267,24 @@ class RestaurantReservationCard extends StatelessWidget
                               height: 10.h,
                             ),
                             RatingBar.builder(
-                              initialRating: reservationConfirmedWatch
-                                  .reservation.rating!
-                                  .toDouble(),
-                              itemBuilder: (BuildContext context, int index) {
-                                return index >=
-                                        reservationConfirmedWatch
-                                            .reservation.rating!
-                                    ? const Icon(Icons.star_outline)
-                                    : const Icon(Icons.star);
-                              },
-                              itemSize: 24.w,
-                              glow: false,
-                              onRatingUpdate: (double value) {
-                                reservationConfirmedWatch
-                                    .updateRating(value.toInt());
-                              },
-                              unratedColor: Colors.black,
-                            ),
+                                initialRating: reservation.rating!
+                                    .toDouble(),
+                                itemBuilder: (BuildContext context, int index) {
+                                  return index >=
+                                          reservationConfirmedWatch
+                                              .reservation.rating!
+                                      ? const Icon(Icons.star_outline)
+                                      : const Icon(Icons.star);
+                                },
+                                itemSize: 24.w,
+                                glow: false,
+                                onRatingUpdate: (value) {
+                                  onRatingUpdate(value);
+                                },
+                                unratedColor: Colors.black),
                           ]
                         } else ...{
-                          if (reservationConfirmedWatch
-                              .reservation.isAwaitingConfirmation) ...{
+                          if (reservation.isAwaitingConfirmation) ...{
                             ...[
                               SizedBox(
                                 height: 5.h,
@@ -310,9 +306,7 @@ class RestaurantReservationCard extends StatelessWidget
                           },
                           ...[
                             InkWell(
-                              onTap: () {
-                                reservationConfirmedWatch.manageReservation();
-                              },
+                              onTap: onManageReservationTapped,
                               child: Container(
                                 height: 30.h,
                                 width: 182.w,

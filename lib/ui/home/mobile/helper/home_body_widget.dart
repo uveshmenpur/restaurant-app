@@ -15,16 +15,13 @@ import 'package:restaurant/ui/utils/widgets/restaurant_card.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_reservation_card.dart';
 
 ///Home-Screen Body Widget
-class HomeBodyWidget extends StatelessWidget with BaseStatelessWidget {
-  const HomeBodyWidget({
+class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
+  HomeBodyWidget({
     super.key,
-    required this.ref,
   });
 
-  final WidgetRef ref;
-
   @override
-  Widget buildPage(BuildContext context) {
+  Widget buildPage(BuildContext context,WidgetRef ref) {
     final homeWatch = ref.watch(homeController);
     final reservationConfirmedWatch = ref.watch(reservationConfirmedController);
     if (homeWatch.selectedPage == 0) {
@@ -159,31 +156,42 @@ class HomeBodyWidget extends StatelessWidget with BaseStatelessWidget {
                 color: AppColors.white,
               ),
             ),
-            reservationConfirmedWatch.upcomingReservation.isNotEmpty
-                ? ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount:
-                        reservationConfirmedWatch.upcomingReservation.length,
-                    itemBuilder: (context, index) {
-                      final reservation =
-                          reservationConfirmedWatch.upcomingReservation[index];
-                      return RestaurantReservationCard(
-                          reservation: reservation);
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return Container(
-                        height: 20.h,
-                      );
-                    },
-                  )
-                : Container(
-                    height: 40.h,
-                  ),
+            SizedBox(
+              height: 15.h,
+            ),
+            ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: reservationConfirmedWatch.upcomingReservation.length,
+              itemBuilder: (context, index) {
+                return RestaurantReservationCard(
+                  reservation:
+                      reservationConfirmedWatch.upcomingReservation[index],
+                  onRatingUpdate: (double value) {
+
+                  },
+                  onCloseTapped: () {
+                    reservationConfirmedWatch.manageUpcomingReservation(index);
+                  },
+                  onCancelReservationTapped: () {
+                    reservationConfirmedWatch.removeUpcomingAtIndex(index);
+                  },
+                  onMakeChangesTapped: () {},
+                  onManageReservationTapped: (){
+                    reservationConfirmedWatch.manageUpcomingReservation(index);
+                  },
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 20.h,
+                );
+              },
+            ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h),
+              padding: EdgeInsets.symmetric(vertical: 25.h),
               child: Text(
-                AppString.keyUpcoming,
+                AppString.keyPrevious,
                 style: TextStyles.medium.copyWith(
                   fontSize: 18.sp,
                   color: AppColors.white,
@@ -195,10 +203,17 @@ class HomeBodyWidget extends StatelessWidget with BaseStatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                final reservation =
-                    reservationConfirmedWatch.previousReservation[index];
-                reservationConfirmedWatch.setReservation(reservation);
-                return RestaurantReservationCard(reservation: reservation);
+                return RestaurantReservationCard(
+                  reservation:
+                      reservationConfirmedWatch.previousReservation[index],
+                  onRatingUpdate: (double value) {
+                    print('object $value');
+                    reservationConfirmedWatch.updatePreviousRating(index, value);
+                  },
+                  onManageReservationTapped: (){
+                    reservationConfirmedWatch.manageUpcomingReservation(index);
+                  },
+                );
               },
               separatorBuilder: (BuildContext context, int index) {
                 return Container(

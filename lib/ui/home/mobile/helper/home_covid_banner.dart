@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/home/home_controller.dart';
+import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_controller.dart';
 import 'package:restaurant/ui/utils/const/app_strings.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
@@ -62,6 +63,7 @@ class HomeCovidBanner extends StatelessWidget with BaseStatelessWidget{
                       ),
                       onTap: () {
                         ref.watch(homeController).hideBanner();
+                        ref.watch(reservationConfirmedController).filterLists();
                       },
                     ),
                   ],
