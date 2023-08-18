@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/framework/controllers/make_reservation/make_reservation_controller.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/ui/make_reservation/mobile/helper/make_reservation_select_time.dart';
+import 'package:restaurant/ui/reservation/mobile/helper/make_reservation_select_time.dart';
 import 'package:restaurant/ui/restaurant_details/mobile/helper/make_reservation_button.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/widgets/restaurant_details_tab_bar.dart';

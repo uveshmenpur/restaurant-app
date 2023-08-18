@@ -3,4 +3,5 @@ abstract class Keys {
   static const restaurantDetails = 'restaurantDetails';
   static const makeReservation = 'makeReservation';
   static const reservationConfirmed = 'reservationConfirmed';
+  static const addLocation = 'addLocation';
 }

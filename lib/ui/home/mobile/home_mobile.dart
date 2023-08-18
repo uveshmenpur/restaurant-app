@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:restaurant/framework/controllers/home/home_controller.dart';
-import 'package:restaurant/framework/controllers/make_reservation/reservation_confirmation_controller.dart';
 import 'package:restaurant/ui/home/mobile/helper/home_body_widget.dart';
 import 'package:restaurant/ui/home/mobile/helper/home_covid_banner.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';

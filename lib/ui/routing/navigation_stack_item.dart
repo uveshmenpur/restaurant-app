@@ -10,4 +10,5 @@ class NavigationStackItem with _$NavigationStackItem{
   const factory NavigationStackItem.restaurantDetails(Restaurant restaurant) = NavigationStackItemRestaurantDetails;
   const factory NavigationStackItem.makeReservation(Restaurant restaurant) = NavigationStackItemMakeReservation;
   const factory NavigationStackItem.reservationConfirmed(Reservation reservation) = NavigationStackItemReservationConfirmed;
+  const factory NavigationStackItem.addLocation() = NavigationStackItemAddLocation;
 }

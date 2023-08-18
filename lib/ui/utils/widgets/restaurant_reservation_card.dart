@@ -119,7 +119,96 @@ class RestaurantReservationCard extends StatelessWidget
                           height: 25.h,
                         ),
                         InkWell(
-                          onTap: onCancelReservationTapped,
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      'Are you sure you want to cancel your reservation?',
+                                      style: TextStyles.bold.copyWith(
+                                        fontSize: 24.sp,
+                                        color: Colors.black,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    titlePadding: EdgeInsets.fromLTRB(20.w,40.h,20.w,0.0),
+                                    actionsPadding: EdgeInsets.fromLTRB(
+                                        0.0, 80.h, 20.w, 0.0),
+                                    actions: [
+                                      SizedBox(
+                                        width: 260.w,
+                                        height: 70.h,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 130.w,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                border: Border(
+                                                  top: BorderSide(
+                                                    color: AppColors.black
+                                                        .withOpacity(0.3),
+                                                  ),
+                                                  right: BorderSide(
+                                                    color: AppColors.black
+                                                        .withOpacity(0.3),
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Center(
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text(
+                                                    'No',
+                                                    style: TextStyles.bold
+                                                        .copyWith(
+                                                      fontSize: 18.sp,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 130.w,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                border: Border(
+                                                  top: BorderSide(
+                                                    color: AppColors.black
+                                                        .withOpacity(0.3),
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Center(
+                                                child: InkWell(
+                                                  onTap:
+                                                      onCancelReservationTapped,
+                                                  child: Text(
+                                                    'Yes,Cancel',
+                                                    style: TextStyles.bold
+                                                        .copyWith(
+                                                      fontSize: 18.sp,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
+                          },
                           child: Container(
                             width: 182.w,
                             height: 30.h,
@@ -267,8 +356,7 @@ class RestaurantReservationCard extends StatelessWidget
                               height: 10.h,
                             ),
                             RatingBar.builder(
-                                initialRating: reservation.rating!
-                                    .toDouble(),
+                                initialRating: reservation.rating!.toDouble(),
                                 itemBuilder: (BuildContext context, int index) {
                                   return index >=
                                           reservationConfirmedWatch

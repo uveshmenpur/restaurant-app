@@ -36,16 +36,16 @@ class ReservationConfirmedController extends ChangeNotifier {
     reservation = newReservation;
     notifyListeners();
   }
-  void updatePreviousRating(int index,double value){
+
+  void updatePreviousRating(int index, double value) {
     previousReservation[index].rating = value.toInt();
     notifyListeners();
   }
-  void updateUpcomingRating(int index,double value){
+
+  void updateUpcomingRating(int index, double value) {
     upcomingReservation[index].rating = value.toInt();
-    print('$index $value ${upcomingReservation[index].rating}');
     notifyListeners();
   }
-
 
   List<Reservation> reservations = [
     Reservation(
@@ -115,6 +115,7 @@ class ReservationConfirmedController extends ChangeNotifier {
     ),
   ];
 
+  ///filter out list of reservations in upcoming and previous reservations
   void filterLists() {
     ///filter out previous reservations
     previousReservation = reservations
@@ -127,7 +128,12 @@ class ReservationConfirmedController extends ChangeNotifier {
         .where((reservation) =>
             reservation.reservationTime.isAfter(DateTime.now()))
         .toList();
-    upcomingReservation.last.isAwaitingConfirmation = true;
+    ///sort upcoming reservation list date wise
+    upcomingReservation
+        .sort((a, b) => b.reservationTime.compareTo(a.reservationTime));
+    upcomingReservation.first.isAwaitingConfirmation = true;
+
+    ///to define all the previous reservations as previous
     previousReservation.forEach((element) {
       element.isPrevious = true;
     });
@@ -144,7 +150,8 @@ class ReservationConfirmedController extends ChangeNotifier {
     upcomingReservation.removeAt(index);
     notifyListeners();
   }
-  void removeUpcomingAtIndex(int index){
+
+  void removeUpcomingAtIndex(int index) {
     upcomingReservation.removeAt(index);
     notifyListeners();
   }

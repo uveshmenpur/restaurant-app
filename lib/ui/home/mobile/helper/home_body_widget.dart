@@ -21,7 +21,7 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
   });
 
   @override
-  Widget buildPage(BuildContext context,WidgetRef ref) {
+  Widget buildPage(BuildContext context, WidgetRef ref) {
     final homeWatch = ref.watch(homeController);
     final reservationConfirmedWatch = ref.watch(reservationConfirmedController);
     if (homeWatch.selectedPage == 0) {
@@ -36,8 +36,12 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                 size: 16.0.w,
               ),
             ),
-            //TODO implement onTap method
             InkWell(
+              onTap: () {
+                ref
+                    .watch(navigationStackController)
+                    .push(const NavigationStackItem.addLocation());
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -167,9 +171,7 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                 return RestaurantReservationCard(
                   reservation:
                       reservationConfirmedWatch.upcomingReservation[index],
-                  onRatingUpdate: (double value) {
-
-                  },
+                  onRatingUpdate: (double value) {},
                   onCloseTapped: () {
                     reservationConfirmedWatch.manageUpcomingReservation(index);
                   },
@@ -177,7 +179,7 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                     reservationConfirmedWatch.removeUpcomingAtIndex(index);
                   },
                   onMakeChangesTapped: () {},
-                  onManageReservationTapped: (){
+                  onManageReservationTapped: () {
                     reservationConfirmedWatch.manageUpcomingReservation(index);
                   },
                 );
@@ -207,10 +209,12 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                   reservation:
                       reservationConfirmedWatch.previousReservation[index],
                   onRatingUpdate: (double value) {
-                    print('object $value');
-                    reservationConfirmedWatch.updatePreviousRating(index, value);
+                    reservationConfirmedWatch.updatePreviousRating(
+                      index,
+                      value,
+                    );
                   },
-                  onManageReservationTapped: (){
+                  onManageReservationTapped: () {
                     reservationConfirmedWatch.manageUpcomingReservation(index);
                   },
                 );
@@ -220,6 +224,9 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                   height: 20.h,
                 );
               },
+            ),
+            SizedBox(
+              height: 30.h,
             ),
           ],
         ),

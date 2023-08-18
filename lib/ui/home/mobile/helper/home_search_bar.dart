@@ -7,10 +7,13 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class HomeSearchBar extends StatelessWidget with BaseStatelessWidget{
+class HomeSearchBar extends StatelessWidget with BaseStatelessWidget {
   const HomeSearchBar({
     super.key,
+    this.hintText,
   });
+
+  final String? hintText;
 
   @override
   Widget buildPage(BuildContext context) {
@@ -39,7 +42,7 @@ class HomeSearchBar extends StatelessWidget with BaseStatelessWidget{
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(18.0.w),
-              hintText: AppString.keySearchRestaurants,
+              hintText: hintText ?? AppString.keySearchRestaurants,
               hintStyle: TextStyles.regular.copyWith(
                 fontSize: 18.sp,
                 color: AppColors.searchBarText.withOpacity(0.7),

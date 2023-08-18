@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:restaurant/framework/repository/make_reservation/model/reservation.dart';
-import 'package:restaurant/ui/make_reservation/mobile/reservation_confirmation.dart';
+import 'package:restaurant/ui/reservation/mobile/reservation_confirmation.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 
 class ReservationConfirmed extends StatelessWidget with BaseStatelessWidget {

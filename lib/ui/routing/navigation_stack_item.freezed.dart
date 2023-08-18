@@ -22,6 +22,7 @@ mixin _$NavigationStackItem {
     required TResult Function(Restaurant restaurant) restaurantDetails,
     required TResult Function(Restaurant restaurant) makeReservation,
     required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$NavigationStackItem {
     TResult? Function(Restaurant restaurant)? restaurantDetails,
     TResult? Function(Restaurant restaurant)? makeReservation,
     TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$NavigationStackItem {
     TResult Function(Restaurant restaurant)? restaurantDetails,
     TResult Function(Restaurant restaurant)? makeReservation,
     TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$NavigationStackItem {
         makeReservation,
     required TResult Function(NavigationStackItemReservationConfirmed value)
         reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$NavigationStackItem {
         makeReservation,
     TResult? Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +76,7 @@ mixin _$NavigationStackItem {
     TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     TResult Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +143,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     required TResult Function(Restaurant restaurant) restaurantDetails,
     required TResult Function(Restaurant restaurant) makeReservation,
     required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
   }) {
     return home();
   }
@@ -148,6 +155,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     TResult? Function(Restaurant restaurant)? restaurantDetails,
     TResult? Function(Restaurant restaurant)? makeReservation,
     TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
   }) {
     return home?.call();
   }
@@ -159,6 +167,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     TResult Function(Restaurant restaurant)? restaurantDetails,
     TResult Function(Restaurant restaurant)? makeReservation,
     TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -177,6 +186,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
         makeReservation,
     required TResult Function(NavigationStackItemReservationConfirmed value)
         reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
   }) {
     return home(this);
   }
@@ -191,6 +201,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
         makeReservation,
     TResult? Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
   }) {
     return home?.call(this);
   }
@@ -204,6 +215,7 @@ class _$NavigationStackItemHome implements NavigationStackItemHome {
     TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     TResult Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -292,6 +304,7 @@ class _$NavigationStackItemRestaurantDetails
     required TResult Function(Restaurant restaurant) restaurantDetails,
     required TResult Function(Restaurant restaurant) makeReservation,
     required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
   }) {
     return restaurantDetails(restaurant);
   }
@@ -303,6 +316,7 @@ class _$NavigationStackItemRestaurantDetails
     TResult? Function(Restaurant restaurant)? restaurantDetails,
     TResult? Function(Restaurant restaurant)? makeReservation,
     TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
   }) {
     return restaurantDetails?.call(restaurant);
   }
@@ -314,6 +328,7 @@ class _$NavigationStackItemRestaurantDetails
     TResult Function(Restaurant restaurant)? restaurantDetails,
     TResult Function(Restaurant restaurant)? makeReservation,
     TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
     required TResult orElse(),
   }) {
     if (restaurantDetails != null) {
@@ -332,6 +347,7 @@ class _$NavigationStackItemRestaurantDetails
         makeReservation,
     required TResult Function(NavigationStackItemReservationConfirmed value)
         reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
   }) {
     return restaurantDetails(this);
   }
@@ -346,6 +362,7 @@ class _$NavigationStackItemRestaurantDetails
         makeReservation,
     TResult? Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
   }) {
     return restaurantDetails?.call(this);
   }
@@ -359,6 +376,7 @@ class _$NavigationStackItemRestaurantDetails
     TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     TResult Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
     required TResult orElse(),
   }) {
     if (restaurantDetails != null) {
@@ -455,6 +473,7 @@ class _$NavigationStackItemMakeReservation
     required TResult Function(Restaurant restaurant) restaurantDetails,
     required TResult Function(Restaurant restaurant) makeReservation,
     required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
   }) {
     return makeReservation(restaurant);
   }
@@ -466,6 +485,7 @@ class _$NavigationStackItemMakeReservation
     TResult? Function(Restaurant restaurant)? restaurantDetails,
     TResult? Function(Restaurant restaurant)? makeReservation,
     TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
   }) {
     return makeReservation?.call(restaurant);
   }
@@ -477,6 +497,7 @@ class _$NavigationStackItemMakeReservation
     TResult Function(Restaurant restaurant)? restaurantDetails,
     TResult Function(Restaurant restaurant)? makeReservation,
     TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
     required TResult orElse(),
   }) {
     if (makeReservation != null) {
@@ -495,6 +516,7 @@ class _$NavigationStackItemMakeReservation
         makeReservation,
     required TResult Function(NavigationStackItemReservationConfirmed value)
         reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
   }) {
     return makeReservation(this);
   }
@@ -509,6 +531,7 @@ class _$NavigationStackItemMakeReservation
         makeReservation,
     TResult? Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
   }) {
     return makeReservation?.call(this);
   }
@@ -522,6 +545,7 @@ class _$NavigationStackItemMakeReservation
     TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     TResult Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
     required TResult orElse(),
   }) {
     if (makeReservation != null) {
@@ -618,6 +642,7 @@ class _$NavigationStackItemReservationConfirmed
     required TResult Function(Restaurant restaurant) restaurantDetails,
     required TResult Function(Restaurant restaurant) makeReservation,
     required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
   }) {
     return reservationConfirmed(reservation);
   }
@@ -629,6 +654,7 @@ class _$NavigationStackItemReservationConfirmed
     TResult? Function(Restaurant restaurant)? restaurantDetails,
     TResult? Function(Restaurant restaurant)? makeReservation,
     TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
   }) {
     return reservationConfirmed?.call(reservation);
   }
@@ -640,6 +666,7 @@ class _$NavigationStackItemReservationConfirmed
     TResult Function(Restaurant restaurant)? restaurantDetails,
     TResult Function(Restaurant restaurant)? makeReservation,
     TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
     required TResult orElse(),
   }) {
     if (reservationConfirmed != null) {
@@ -658,6 +685,7 @@ class _$NavigationStackItemReservationConfirmed
         makeReservation,
     required TResult Function(NavigationStackItemReservationConfirmed value)
         reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
   }) {
     return reservationConfirmed(this);
   }
@@ -672,6 +700,7 @@ class _$NavigationStackItemReservationConfirmed
         makeReservation,
     TResult? Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
   }) {
     return reservationConfirmed?.call(this);
   }
@@ -685,6 +714,7 @@ class _$NavigationStackItemReservationConfirmed
     TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
     TResult Function(NavigationStackItemReservationConfirmed value)?
         reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
     required TResult orElse(),
   }) {
     if (reservationConfirmed != null) {
@@ -705,4 +735,138 @@ abstract class NavigationStackItemReservationConfirmed
   _$$NavigationStackItemReservationConfirmedCopyWith<
           _$NavigationStackItemReservationConfirmed>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NavigationStackItemAddLocationCopyWith<$Res> {
+  factory _$$NavigationStackItemAddLocationCopyWith(
+          _$NavigationStackItemAddLocation value,
+          $Res Function(_$NavigationStackItemAddLocation) then) =
+      __$$NavigationStackItemAddLocationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NavigationStackItemAddLocationCopyWithImpl<$Res>
+    extends _$NavigationStackItemCopyWithImpl<$Res,
+        _$NavigationStackItemAddLocation>
+    implements _$$NavigationStackItemAddLocationCopyWith<$Res> {
+  __$$NavigationStackItemAddLocationCopyWithImpl(
+      _$NavigationStackItemAddLocation _value,
+      $Res Function(_$NavigationStackItemAddLocation) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NavigationStackItemAddLocation
+    implements NavigationStackItemAddLocation {
+  const _$NavigationStackItemAddLocation();
+
+  @override
+  String toString() {
+    return 'NavigationStackItem.addLocation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavigationStackItemAddLocation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(Restaurant restaurant) restaurantDetails,
+    required TResult Function(Restaurant restaurant) makeReservation,
+    required TResult Function(Reservation reservation) reservationConfirmed,
+    required TResult Function() addLocation,
+  }) {
+    return addLocation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function(Restaurant restaurant)? restaurantDetails,
+    TResult? Function(Restaurant restaurant)? makeReservation,
+    TResult? Function(Reservation reservation)? reservationConfirmed,
+    TResult? Function()? addLocation,
+  }) {
+    return addLocation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(Restaurant restaurant)? restaurantDetails,
+    TResult Function(Restaurant restaurant)? makeReservation,
+    TResult Function(Reservation reservation)? reservationConfirmed,
+    TResult Function()? addLocation,
+    required TResult orElse(),
+  }) {
+    if (addLocation != null) {
+      return addLocation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigationStackItemHome value) home,
+    required TResult Function(NavigationStackItemRestaurantDetails value)
+        restaurantDetails,
+    required TResult Function(NavigationStackItemMakeReservation value)
+        makeReservation,
+    required TResult Function(NavigationStackItemReservationConfirmed value)
+        reservationConfirmed,
+    required TResult Function(NavigationStackItemAddLocation value) addLocation,
+  }) {
+    return addLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigationStackItemHome value)? home,
+    TResult? Function(NavigationStackItemRestaurantDetails value)?
+        restaurantDetails,
+    TResult? Function(NavigationStackItemMakeReservation value)?
+        makeReservation,
+    TResult? Function(NavigationStackItemReservationConfirmed value)?
+        reservationConfirmed,
+    TResult? Function(NavigationStackItemAddLocation value)? addLocation,
+  }) {
+    return addLocation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigationStackItemHome value)? home,
+    TResult Function(NavigationStackItemRestaurantDetails value)?
+        restaurantDetails,
+    TResult Function(NavigationStackItemMakeReservation value)? makeReservation,
+    TResult Function(NavigationStackItemReservationConfirmed value)?
+        reservationConfirmed,
+    TResult Function(NavigationStackItemAddLocation value)? addLocation,
+    required TResult orElse(),
+  }) {
+    if (addLocation != null) {
+      return addLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigationStackItemAddLocation implements NavigationStackItem {
+  const factory NavigationStackItemAddLocation() =
+      _$NavigationStackItemAddLocation;
 }

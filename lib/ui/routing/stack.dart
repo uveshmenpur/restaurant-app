@@ -72,8 +72,7 @@ class NavigationStack with ChangeNotifier {
 
   void pushRemoveUntil(NavigationStackItem item, NavigationStackItem until) {
     if (_items.isNotEmpty) {
-      int index = _items.indexWhere((element) => element == until);
-      _items.removeRange(index + 1, _items.length);
+      popUntil(until);
       _items.add(item);
       notifyListeners();
     }

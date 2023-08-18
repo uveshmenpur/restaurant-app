@@ -69,7 +69,6 @@ class ReservationConfirmedMobile extends StatelessWidget
             builder: (BuildContext context, WidgetRef ref, Widget? child) {
               final reservationWatch =
                   ref.watch(reservationConfirmedController);
-              reservationWatch.upcomingReservation.add(reservation);
               return RestaurantReservationCard(
                 reservation: reservationWatch.upcomingReservation.last,
                 onRatingUpdate: (double value) {
@@ -84,7 +83,7 @@ class ReservationConfirmedMobile extends StatelessWidget
                 },
                 onMakeChangesTapped: () {},
                 onManageReservationTapped: () {
-                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length);
+                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length - 1);
                 },
               );
             },

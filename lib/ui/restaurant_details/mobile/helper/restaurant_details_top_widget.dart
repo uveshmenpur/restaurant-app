@@ -7,12 +7,13 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/widgets/common_close_button.dart';
 
-
-class RestaurantDetailsTopWidget extends StatelessWidget with BaseStatelessWidget{
+class RestaurantDetailsTopWidget extends StatelessWidget
+    with BaseStatelessWidget {
   const RestaurantDetailsTopWidget({
     super.key,
     required this.restaurant,
   });
+
   final Restaurant restaurant;
 
   @override
@@ -37,8 +38,7 @@ class RestaurantDetailsTopWidget extends StatelessWidget with BaseStatelessWidge
             bottom: 20.h,
             left: 20.w,
             child: Consumer(
-              builder:
-                  (BuildContext context, WidgetRef ref, Widget? child) {
+              builder: (BuildContext context, WidgetRef ref, Widget? child) {
                 final homeWatch = ref.watch(homeController);
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -61,7 +61,7 @@ class RestaurantDetailsTopWidget extends StatelessWidget with BaseStatelessWidge
                               ? Icons.favorite
                               : Icons.favorite_border_outlined,
                           color: homeWatch.favorite.contains(restaurant)
-                              ? Colors.red
+                              ? Colors.white.withOpacity(0.6)
                               : AppColors.white.withOpacity(0.6),
                           size: 20.w,
                         ),
@@ -88,4 +88,3 @@ class RestaurantDetailsTopWidget extends StatelessWidget with BaseStatelessWidge
     );
   }
 }
-

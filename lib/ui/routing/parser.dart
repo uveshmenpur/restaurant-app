@@ -55,6 +55,8 @@ class MainRouterInformationParser
         case Keys.reservationConfirmed:
           items.add(NavigationStackItem.reservationConfirmed(Reservation(
               restaurant: restaurant, reservationTime: DateTime.now(), peopleCount: 1)));
+        case Keys.addLocation:
+          items.add(const NavigationStackItem.addLocation());
           break;
       }
     }
@@ -81,6 +83,7 @@ class MainRouterInformationParser
                 restaurantDetails: (restaurant) => '/${Keys.restaurantDetails}',
                 makeReservation: (restaurant) => '/${Keys.makeReservation}',
                 reservationConfirmed: (reservation) => '/${Keys.reservationConfirmed}',
+            addLocation: () => '/${Keys.addLocation}'
               )
               .toString();
     });

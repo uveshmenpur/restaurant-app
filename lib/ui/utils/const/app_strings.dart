@@ -28,9 +28,11 @@ class AppString {
       'Search Restaurants or Cuisine Types';
   static const String keyBannerTitle = 'COVID-19 information';
   static const String keyOk = 'Ok';
+  static const String keyEdit = 'EDIT';
   static const String keyOpen = 'Open\n';
   static const String keyRestaurantTiming = '7am – 10:30pm (Today)';
   static const String keyMakeAReservation = 'MAKE A RESERVATION';
+  static const String keyChangeYourLocation = 'Change Your Location';
   static const String keyBannerContent =
       'Please be aware that the municipality of Dubai has issued restrictions for restaurants during the pandemic. For more information click here >';
   static const String keyGoodForGroups = 'Good for Groups and Families';
@@ -74,6 +76,9 @@ class AppString {
     'BreakFast',
     'Lunch',
     'Dinner',
+  ];
+  static const locationTabs = [
+    'Saved','Recent'
   ];
   static const inputHint = [
     'First Name',

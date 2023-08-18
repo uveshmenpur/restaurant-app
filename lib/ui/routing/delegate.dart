@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:restaurant/ui/home/home.dart';
-import 'package:restaurant/ui/make_reservation/make_reservation.dart';
-import 'package:restaurant/ui/make_reservation/reservation_confirmed.dart';
+import 'package:restaurant/ui/location/add_location.dart';
+import 'package:restaurant/ui/reservation/make_reservation.dart';
+import 'package:restaurant/ui/reservation/reservation_confirmed.dart';
 import 'package:restaurant/ui/restaurant_details/restaurant_details.dart';
 import 'package:restaurant/ui/routing/navigation_stack_keys.dart';
 import 'package:restaurant/ui/routing/stack.dart';
@@ -56,20 +57,26 @@ class MainRouterDelegate extends RouterDelegate<NavigationStack>
 
   List<Page> _pages(WidgetRef ref) => stack.items
       .mapIndexed((e, i) => e.when(
-            /// home screen
-            home: () =>
-                const MaterialPage(child: Home(), key: ValueKey(Keys.home)),
-            restaurantDetails: (restaurant) => MaterialPage(
-                child: RestaurantDetails(
-                  restaurant: restaurant,
-                ),
-                key: const ValueKey(Keys.restaurantDetails)),
-            makeReservation: (restaurant) => MaterialPage(
-              child: MakeReservation(restaurant: restaurant),
-              key: const ValueKey(Keys.makeReservation),
-            ),
-    reservationConfirmed: (reservation) => MaterialPage(child: ReservationConfirmed(reservation: reservation,),key: const ValueKey(Keys.reservationConfirmed)),
-          ))
+
+          /// home screen
+          home: () =>
+              const MaterialPage(child: Home(), key: ValueKey(Keys.home)),
+          restaurantDetails: (restaurant) => MaterialPage(
+              child: RestaurantDetails(
+                restaurant: restaurant,
+              ),
+              key: const ValueKey(Keys.restaurantDetails)),
+          makeReservation: (restaurant) => MaterialPage(
+                child: MakeReservation(restaurant: restaurant),
+                key: const ValueKey(Keys.makeReservation),
+              ),
+          reservationConfirmed: (reservation) => MaterialPage(
+              child: ReservationConfirmed(
+                reservation: reservation,
+              ),
+              key: const ValueKey(Keys.reservationConfirmed)),
+          addLocation: () => const MaterialPage(
+              child: AddLocation(), key: ValueKey(Keys.addLocation))))
       .toList();
 
   @override

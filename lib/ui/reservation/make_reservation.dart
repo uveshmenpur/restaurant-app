@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:restaurant/framework/repository/home/model/restaurant.dart';
-import 'package:restaurant/ui/make_reservation/mobile/make_reservation_mobile.dart';
+import 'package:restaurant/ui/reservation/mobile/make_reservation_mobile.dart';
 import 'package:restaurant/ui/utils/helpers/base.dart';
 
 

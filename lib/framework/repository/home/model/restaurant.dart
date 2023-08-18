@@ -23,7 +23,7 @@ class Restaurant {
   bool isFavorite;
 }
 
-
+///List of Restaurants Displayed on Home Screen
 List<Restaurant> restaurants = [
   Restaurant(
     restaurantName: 'Vivitalia',
