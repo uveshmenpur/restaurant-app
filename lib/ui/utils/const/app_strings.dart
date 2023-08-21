@@ -62,6 +62,7 @@ class AppString {
   static const String keyAwaitingConfirmation = 'Awaiting Confirmation';
   static const String keyManageReservation = 'Manage Reservation';
   static const String keyReservationId = 'Reservation ID: ';
+  static const String keyDelete = 'DELETE';
   static const String keyRateYourExperience =
       'How would you rate your dining experience? ';
   static const String keyTermsAndConditions =
@@ -77,15 +78,23 @@ class AppString {
     'Lunch',
     'Dinner',
   ];
-  static const locationTabs = [
-    'Saved','Recent'
-  ];
+  static const locationTabs = ['Saved', 'Recent'];
   static const inputHint = [
     'First Name',
     'Last Name',
     'Phone Number',
     'Email',
     'Special Request',
+  ];
+  static const locationHint = [
+    'Name',
+    'Address',
+    'Delivery Notes',
+  ];
+  static const locationLabel = [
+    ' e.g. Gym,School',
+    ' e.g. 244 Onan Rd, \n Singapore 424625',
+    ' e.g. Take lift B'
   ];
   static const breakFastTime = [
     '09:00',

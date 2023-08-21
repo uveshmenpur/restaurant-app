@@ -72,18 +72,31 @@ class ReservationConfirmedMobile extends StatelessWidget
               return RestaurantReservationCard(
                 reservation: reservationWatch.upcomingReservation.last,
                 onRatingUpdate: (double value) {
-                  reservationWatch.updateUpcomingRating(reservationWatch.upcomingReservation.length-1, value);
+                  reservationWatch.updateUpcomingRating(
+                      reservationWatch.upcomingReservation.length - 1, value);
                 },
                 onCloseTapped: () {
-                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length-1);
+                  reservationWatch.manageUpcomingReservation(
+                      reservationWatch.upcomingReservation.length - 1);
                 },
                 onCancelReservationTapped: () {
-                  reservationWatch.deleteUpcomingReservation(reservationWatch.upcomingReservation.length - 1);
-                  ref.watch(navigationStackController).popUntil(const NavigationStackItem.home());
+                  reservationWatch.deleteUpcomingReservation(
+                      reservationWatch.upcomingReservation.length - 1);
+                  ref
+                      .watch(navigationStackController)
+                      .popUntil(const NavigationStackItem.home());
                 },
-                onMakeChangesTapped: () {},
+                onMakeChangesTapped: () {
+                  ref
+                      .watch(navigationStackController)
+                      .popUntil(const NavigationStackItem.home());
+                  ref.watch(navigationStackController).push(
+                      NavigationStackItem.makeReservation(reservationWatch
+                          .upcomingReservation.last.restaurant));
+                },
                 onManageReservationTapped: () {
-                  reservationWatch.manageUpcomingReservation(reservationWatch.upcomingReservation.length - 1);
+                  reservationWatch.manageUpcomingReservation(
+                      reservationWatch.upcomingReservation.length - 1);
                 },
               );
             },

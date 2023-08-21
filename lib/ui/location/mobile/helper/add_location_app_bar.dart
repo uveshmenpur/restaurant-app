@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant/ui/routing/navigation_stack_item.dart';
 import 'package:restaurant/ui/routing/stack.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
 class AddLocationAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AddLocationAppBar({super.key});
+  const AddLocationAppBar({super.key, this.onDoneTap});
+
+  final void Function()? onDoneTap;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,9 @@ class AddLocationAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (BuildContext context, WidgetRef ref, Widget? child) {
                   return InkWell(
                     onTap: () {
-                      ref.watch(navigationStackController).pop();
+                      ref
+                          .watch(navigationStackController)
+                          .pushAndRemoveAll(const NavigationStackItem.home());
                     },
                     child: Icon(
                       Icons.arrow_left,
@@ -46,9 +51,10 @@ class AddLocationAppBar extends StatelessWidget implements PreferredSizeWidget {
                   return Padding(
                     padding: EdgeInsets.only(top: 8.h, right: 16.w),
                     child: InkWell(
-                      onTap: () {
-                        ref.watch(navigationStackController).pop();
-                      },
+                      onTap: onDoneTap ??
+                          () {
+                            ref.watch(navigationStackController).pop();
+                          },
                       child: Text(
                         'DONE',
                         style: TextStyles.medium.copyWith(

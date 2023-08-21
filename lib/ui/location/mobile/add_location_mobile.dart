@@ -9,6 +9,8 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
+import 'helper/edit_location_text_field.dart';
+
 class AddLocationMobile extends ConsumerWidget with BaseConsumerWidget {
   const AddLocationMobile({super.key});
 
@@ -25,21 +27,56 @@ class AddLocationMobile extends ConsumerWidget with BaseConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ListView.separated(
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            width: 100.w,
-                            height: 100.h,
-                            color: AppColors.white,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: 40.h,
-                          );
-                        },
-                        itemCount: 3),
+                    Form(
+                      key: locationWatch.formKey,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return index != 3
+                                ? EditLocationTextField(
+                                    focusNode: locationWatch.nodes[index],
+                                    initialValue: index == 0
+                                        ? locationWatch
+                                            .addresses[
+                                                locationWatch.selectedAddress]
+                                            .addressName
+                                        : index == 1
+                                            ? locationWatch
+                                                .addresses[locationWatch
+                                                    .selectedAddress]
+                                                .address
+                                            : '',
+                                    label: AppString.locationHint[index],
+                                    maxLines: index == 0
+                                        ? 1
+                                        : index == 1
+                                            ? 3
+                                            : 2,
+                                    onTapOutSide: (event) {
+                                      locationWatch.unfocus(index);
+                                    },
+                                    hintText: AppString.locationLabel[index],
+                                    validator: (String? value) {
+                                      return locationWatch.getValidator(
+                                          index, value);
+                                    },
+                                  )
+                                : InkWell(
+                                    onTap: () {
+                                      locationWatch.removeAddress(
+                                          locationWatch.selectedAddress);
+                                      locationWatch.isEditAddressScreen();
+                                    },
+                                    child: Text(
+                                      AppString.keyDelete,
+                                      style: TextStyles.medium.copyWith(
+                                        color: AppColors.white.withOpacity(0.6),
+                                      ),
+                                    ),
+                                  );
+                          },
+                          itemCount: 4),
+                    ),
                   ],
                 ),
               )
@@ -127,6 +164,7 @@ class AddLocationMobile extends ConsumerWidget with BaseConsumerWidget {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: () {
+                                    locationWatch.selectedAddress = index;
                                     locationWatch.isEditAddressScreen();
                                   },
                                   child: Container(

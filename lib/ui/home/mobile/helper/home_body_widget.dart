@@ -177,8 +177,17 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                   },
                   onCancelReservationTapped: () {
                     reservationConfirmedWatch.removeUpcomingAtIndex(index);
+                    Navigator.pop(context);
                   },
-                  onMakeChangesTapped: () {},
+                  onMakeChangesTapped: () {
+                    ref
+                        .watch(navigationStackController)
+                        .popUntil(const NavigationStackItem.home());
+                    ref.watch(navigationStackController).push(
+                        NavigationStackItem.makeReservation(
+                            reservationConfirmedWatch
+                                .upcomingReservation[index].restaurant));
+                  },
                   onManageReservationTapped: () {
                     reservationConfirmedWatch.manageUpcomingReservation(index);
                   },

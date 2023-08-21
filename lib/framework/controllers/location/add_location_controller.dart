@@ -12,10 +12,25 @@ final addLocationController = ChangeNotifierProvider((ref) {
 class AddLocationController extends ChangeNotifier {
   int selectedPage = 0;
   bool editEnabled = false;
+  int selectedAddress = 0;
   bool editAddressScreen = false;
+  final nodes = [
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+  ];
+
+  final _formKey = GlobalKey<FormState>();
+
+  GlobalKey get formKey => _formKey;
 
   void changePage(int page) {
     selectedPage = page;
+    notifyListeners();
+  }
+
+  void unfocus(int index) {
+    nodes[index].unfocus();
     notifyListeners();
   }
 
@@ -29,14 +44,36 @@ class AddLocationController extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool validate() {
+    return _formKey.currentState!.validate();
+  }
+
   void editAddress(int index, Address address) {
     addresses[index] = address;
     notifyListeners();
   }
 
   void removeAddress(int index) {
-    addresses[index] = Address(addressName: '', address: '');
+    addresses[index] =
+        Address(addressName: addresses[index].addressName, address: '');
     notifyListeners();
+  }
+
+  /// Returns the appropriate validator function based on the field index
+  String? getValidator(int index, String? value) {
+    if (index == 0 && value != null) {
+      if (value.length > 3) {
+        return null;
+      }
+      return 'This Field is Mandatory';
+    } else if (index == 1 && value != null) {
+      if (value.length >= 15) {
+        return null;
+      }
+      return 'This Field is Mandatory';
+    } else {
+      return null;
+    }
   }
 
   List<Address> addresses = [
