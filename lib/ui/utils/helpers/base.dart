@@ -131,7 +131,7 @@ on State<Page> {
   Widget buildPage(BuildContext context);
 }
 
-mixin BaseConsumerStatefulWidget<Page extends ConsumerStatefulWidget> on State<Page> {
+mixin BaseConsumerStatefulWidget<Page extends ConsumerStatefulWidget> on ConsumerState<Page> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(

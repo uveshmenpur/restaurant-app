@@ -39,6 +39,7 @@ class ReservationConfirmedController extends ChangeNotifier {
 
   void updatePreviousRating(int index, double value) {
     previousReservation[index].rating = value.toInt();
+    print('object $value,$index');
     notifyListeners();
   }
 

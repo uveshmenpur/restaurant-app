@@ -132,7 +132,8 @@ class RestaurantReservationCard extends StatelessWidget
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
-                                    titlePadding: EdgeInsets.fromLTRB(20.w,40.h,20.w,0.0),
+                                    titlePadding: EdgeInsets.fromLTRB(
+                                        20.w, 40.h, 20.w, 0.0),
                                     actionsPadding: EdgeInsets.fromLTRB(
                                         0.0, 80.h, 20.w, 0.0),
                                     actions: [
@@ -358,9 +359,7 @@ class RestaurantReservationCard extends StatelessWidget
                             RatingBar.builder(
                                 initialRating: reservation.rating!.toDouble(),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return index >=
-                                          reservationConfirmedWatch
-                                              .reservation.rating!
+                                  return index >= reservation.rating!
                                       ? const Icon(Icons.star_outline)
                                       : const Icon(Icons.star);
                                 },

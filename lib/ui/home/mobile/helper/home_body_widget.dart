@@ -179,15 +179,7 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
                     reservationConfirmedWatch.removeUpcomingAtIndex(index);
                     Navigator.pop(context);
                   },
-                  onMakeChangesTapped: () {
-                    ref
-                        .watch(navigationStackController)
-                        .popUntil(const NavigationStackItem.home());
-                    ref.watch(navigationStackController).push(
-                        NavigationStackItem.makeReservation(
-                            reservationConfirmedWatch
-                                .upcomingReservation[index].restaurant));
-                  },
+                  onMakeChangesTapped: () {},
                   onManageReservationTapped: () {
                     reservationConfirmedWatch.manageUpcomingReservation(index);
                   },
@@ -213,11 +205,12 @@ class HomeBodyWidget extends ConsumerWidget with BaseConsumerWidget {
               itemCount: reservationConfirmedWatch.previousReservation.length,
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
+              primary: true,
               itemBuilder: (context, index) {
                 return RestaurantReservationCard(
                   reservation:
                       reservationConfirmedWatch.previousReservation[index],
-                  onRatingUpdate: (double value) {
+                  onRatingUpdate: (value) {
                     reservationConfirmedWatch.updatePreviousRating(
                       index,
                       value,

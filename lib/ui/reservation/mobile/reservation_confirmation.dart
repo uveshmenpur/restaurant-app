@@ -86,14 +86,7 @@ class ReservationConfirmedMobile extends StatelessWidget
                       .watch(navigationStackController)
                       .popUntil(const NavigationStackItem.home());
                 },
-                onMakeChangesTapped: () {
-                  ref
-                      .watch(navigationStackController)
-                      .popUntil(const NavigationStackItem.home());
-                  ref.watch(navigationStackController).push(
-                      NavigationStackItem.makeReservation(reservationWatch
-                          .upcomingReservation.last.restaurant));
-                },
+                onMakeChangesTapped: () {},
                 onManageReservationTapped: () {
                   reservationWatch.manageUpcomingReservation(
                       reservationWatch.upcomingReservation.length - 1);

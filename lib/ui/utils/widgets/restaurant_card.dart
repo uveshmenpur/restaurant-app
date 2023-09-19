@@ -5,7 +5,7 @@ import 'package:restaurant/ui/utils/helpers/base.dart';
 import 'package:restaurant/ui/utils/theme/app_colors.dart';
 import 'package:restaurant/ui/utils/theme/text_style.dart';
 
-class RestaurantCard extends StatelessWidget with BaseStatelessWidget{
+class RestaurantCard extends StatelessWidget with BaseStatelessWidget {
   const RestaurantCard({
     super.key,
     required this.image,
@@ -64,6 +64,7 @@ class RestaurantCard extends StatelessWidget with BaseStatelessWidget{
                     ),
                     child: Column(
                       children: [
+                        SizedBox(height: 5.h),
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 12.w, vertical: 4.h),
@@ -137,8 +138,7 @@ class RestaurantCard extends StatelessWidget with BaseStatelessWidget{
                               ),
                               const Spacer(),
                               Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 4.w),
+                                padding: EdgeInsets.symmetric(horizontal: 4.w),
                                 child: Icon(
                                   Icons.mode_comment_outlined,
                                   color: AppColors.black,
@@ -153,6 +153,9 @@ class RestaurantCard extends StatelessWidget with BaseStatelessWidget{
                               ),
                             ],
                           ),
+                        ),
+                        SizedBox(
+                          height: 5.h,
                         ),
                       ],
                     ),
